@@ -1,9 +1,10 @@
-﻿using BookShopping.Models;
+﻿using System.Diagnostics;
+using BookShopping.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
-namespace BookShopping.Controllers
+namespace BookShopping.Areas.UnAuthenticated.Controllers
 {
+    [Area(Constants.Areas.UnAuthenticatedArea)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

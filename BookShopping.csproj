@@ -23,4 +23,13 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.13" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Authenticated" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Index.cshtml" />
+    <AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Privacy.cshtml" />
+  </ItemGroup>
+
 </Project>
