@@ -5,12 +5,48 @@
       "PackagePath": "staticwebassets\\BookShopping.bundle.scp.css"
     },
     {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\contact.css",
+      "PackagePath": "staticwebassets\\css\\contact.css"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\post.css",
+      "PackagePath": "staticwebassets\\css\\post.css"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\product.css",
+      "PackagePath": "staticwebassets\\css\\product.css"
+    },
+    {
       "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
       "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\fonts\\fontawesome\\all.min.css",
+      "PackagePath": "staticwebassets\\fonts\\fontawesome\\all.min.css"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\js\\jq.js",
+      "PackagePath": "staticwebassets\\js\\jq.js"
+    },
+    {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\js\\jquery-3.3.1.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.3.1.js"
     },
     {
       "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\js\\site.js",
