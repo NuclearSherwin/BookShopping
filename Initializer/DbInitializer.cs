@@ -50,8 +50,8 @@ public class DbInitializer : IDbInitializer
                 UserName = "Admin123",
                 Email = "admin@gmail.com",
                 EmailConfirmed = true,
-                FullName = "Admin",
-                Address = "Phong123"
+                FullName = "Mai Dinh Phong",
+                Address = "Phong123",
             }, "Phong123@").GetAwaiter().GetResult();
 
 

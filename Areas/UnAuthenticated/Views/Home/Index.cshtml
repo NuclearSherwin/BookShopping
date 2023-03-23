@@ -20,12 +20,7 @@
                                     <li class="header__top-item">
                                         <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Introduction</a>
                                     </li>
-                                    <li class="header__top-item">
-                                        <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Sign Up</a>
-                                    </li>
-                                    <li class="header__top-item">
-                                        <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Sign In</a>
-                                    </li>
+                                    <partial name="_LoginPartial" />
                                 </ul>
                             </nav>
                         </section>

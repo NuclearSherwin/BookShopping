@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Authenticated" />
-  </ItemGroup>
-
-  <ItemGroup>
     <AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Index.cshtml" />
     <AdditionalFiles Include="Areas\UnAuthenticated\Views\Home\Privacy.cshtml" />
   </ItemGroup>
