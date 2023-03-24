@@ -4,80 +4,56 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-floating">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.FullName" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.FullName"></label>
-                <span asp-validation-for="Input.FullName" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-floating">
-                <input asp-for="Input.Address" class="form-control" autocomplete="address" aria-required="true" />
-                <label asp-for="Input.Address"></label>
-                <span asp-validation-for="Input.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Role</label>
-                @Html.DropDownListFor(n => n.Input.Role, Model.Input.RoleList,
-                    "Please select the role", new { @class = "form-control" })
-                <span class="text-danger">@Html.ValidationMessageFor(m => m.Input.Role)</span>
-            </div>
+<div class="register-page">
+    <section class="login">
+                <div class="login_box">
+                    <div id="registerFomr" class="left">
+                        @* <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div> *@
+                        <div class="contact">
+                            <form id="account" method="post">
+                                <h3>SIGN UP</h3>
+                                <input asp-for="Input.Email" aria-required="true" type="text" placeholder="EMAIL">
+                                <span id="email-validation" asp-validation-for="Input.Email" class="text-danger"></span>
+                                
+                                <input asp-for="Input.FullName" aria-required="true" type="text" placeholder="FULL NAME">
+                                <span id="fullName-validation" asp-validation-for="Input.FullName" class="text-danger"></span>
 
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Sign In</button>
-        </form>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to register.</h3>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
-                            about setting up this ASP.NET application to support logging in via external services</a>.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins!)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
+                                <input asp-for="Input.Password" aria-required="true" type="password" placeholder="PASSWORD">
+                                <span id="password-validation" asp-validation-for="Input.Password" class="text-danger"></span>
+                                
+                                <input asp-for="Input.ConfirmPassword" aria-required="true" type="text" placeholder="CONFIRM PASSWORD">
+                                <span id="rePass-validation" asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                
+                                <input asp-for="Input.Address" aria-required="true" type="text" placeholder="ADDRESS">
+                                <span id="address-validation" asp-validation-for="Input.Address" class="text-danger"></span>
+                                
+                                <div>
+                                    <label id="role-label" >Role</label>
+                                    @Html.DropDownListFor(n => n.Input.Role, Model.Input.RoleList,
+                                        "Please select the role", new { @class = "form-control" })
+                                    <span id="role-validation" class="text-danger">@Html.ValidationMessageFor(m => m.Input.Role)</span>
+                                </div>
+
+                                <button id="registerSubmit" type="submit" >Sign In</button> 
+                                
+                                <div class="d-flex mt-4">
+                                    <p>
+                                        <a id="register-new-account" asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Already have account? Login</a>
+                                    </p>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                }
-            }
-        </section>
-    </div>
+                    </div>
+                    <div class="right">
+                        <div class="right-text">
+                            <h2>BOOK SHOPPING</h2>
+                            <h5 class="text-uppercase">Reading is to the mind what exercise is to the body.</h5>
+                        </div>
+                        <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div>
+                    </div>
+                </div>
+            </section>
 </div>
 
 @section Scripts {
