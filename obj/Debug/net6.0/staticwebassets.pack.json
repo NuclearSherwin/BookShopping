@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
+      "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\post.css",
       "PackagePath": "staticwebassets\\css\\post.css"
     },

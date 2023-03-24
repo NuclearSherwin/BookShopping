@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4dhoq9hVMrhPmOBgh5CDdh/My5IbGJfdPT1li4WgNLs=",
+  "Hash": "ucBJm44YzwdQnmE5ASZhbXDQkJybpk+/T4czGvTXr4M=",
   "Source": "BookShopping",
   "BasePath": "_content/BookShopping",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\home.css"
+    },
+    {
+      "Identity": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\login.css",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "A:\\work\\class\\BookShopping\\BookShopping\\wwwroot\\css\\post.css",
