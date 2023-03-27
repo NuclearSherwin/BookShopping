@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Appdev\\BookShopping\\BookShopping.csproj": {}
+    "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj": {}
   },
   "projects": {
-    "D:\\Appdev\\BookShopping\\BookShopping.csproj": {
+    "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Appdev\\BookShopping\\BookShopping.csproj",
+        "projectUniqueName": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
         "projectName": "BookShopping",
-        "projectPath": "D:\\Appdev\\BookShopping\\BookShopping.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\Appdev\\BookShopping\\obj\\",
+        "projectPath": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
+        "packagesPath": "C:\\Users\\paika\\.nuget\\packages\\",
+        "outputPath": "A:\\work\\real-projects\\BookShopping\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\paika\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -96,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
