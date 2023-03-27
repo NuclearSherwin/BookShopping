@@ -5,133 +5,132 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookShopping
 build_property.RootNamespace = BookShopping
-build_property.ProjectDir = a:\work\real-projects\BookShopping\
+build_property.ProjectDir = D:\Appdev\BookShopping\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = a:\work\real-projects\BookShopping
+build_property.MSBuildProjectDirectory = D:\Appdev\BookShopping
 build_property._RazorSourceGeneratorDebug = 
 
-[a:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/Home/Index.cshtml]
+[D:/Appdev/BookShopping/Areas/UnAuthenticated/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5BdXRoZW50aWNhdGVkXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/Home/Privacy.cshtml]
+[D:/Appdev/BookShopping/Areas/UnAuthenticated/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = 
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5BdXRoZW50aWNhdGVkXFZpZXdzXEhvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/Details.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/Index.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/OrderDetails.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/OrderDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcT3JkZXJEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/OrderView.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/OrderView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcT3JkZXJWaWV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/_Detail.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/_Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcX0RldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/_OrderDetails.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Orders/_OrderDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcX09yZGVyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Users/Index.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xVc2Vyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/Users/ResetPassword.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/Users/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xVc2Vyc1xSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/_ViewImports.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Authenticated/Views/_ViewStart.cshtml]
+[D:/Appdev/BookShopping/Areas/Authenticated/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Appdev/BookShopping/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/_ViewImports.cshtml]
+[D:/Appdev/BookShopping/Areas/UnAuthenticated/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5BdXRoZW50aWNhdGVkXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/_ViewStart.cshtml]
+[D:/Appdev/BookShopping/Areas/UnAuthenticated/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5BdXRoZW50aWNhdGVkXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/Shared/Error.cshtml]
+[D:/Appdev/BookShopping/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/Shared/_LoginPartial.cshtml]
+[D:/Appdev/BookShopping/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Appdev/BookShopping/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/_ViewImports.cshtml]
+[D:/Appdev/BookShopping/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/_ViewStart.cshtml]
+[D:/Appdev/BookShopping/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[a:/work/real-projects/BookShopping/Views/Shared/_Layout.cshtml]
+[D:/Appdev/BookShopping/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-r6n0svkxgm
