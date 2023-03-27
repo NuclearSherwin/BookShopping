@@ -1,15 +1,14 @@
-﻿@model List<BookShopping.Models.Category>
+@model List<BookShopping.Models.Category>
 
 @{
-    ViewBag.Title = "Category";
     Layout = "_Layout";
 }
 
 <div>
     <h2>Category</h2>
-    
+
     <a class="btn btn-success" asp-area="Authenticated" asp-controller="Categories" asp-action="Create">Create new Category</a>
-    
+
     <table class="table">
         <thead>
         <tr>
@@ -30,8 +29,8 @@
                    asp-action="Update"
                    asp-route-categoryId="@category.Id">Update</a>
             </td>
-    
         }
         </tbody>
     </table>
 </div>
+

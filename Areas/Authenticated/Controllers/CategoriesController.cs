@@ -8,7 +8,7 @@ namespace BookShopping.Areas.Authenticated.Controllers;
 public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;
-    
+
     public CategoriesController(ApplicationDbContext db)
     {
         _db = db;
@@ -20,14 +20,12 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
         var category = _db.Categories.ToList();
         return View(category);
     }
-    
 
     [HttpGet]
     public IActionResult Create()
     {
         return View(new Category());
     }
-    
     [HttpPost]
     public IActionResult Create(Category category)
     {
