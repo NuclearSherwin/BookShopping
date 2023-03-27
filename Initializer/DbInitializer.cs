@@ -7,7 +7,7 @@ namespace BookShopping.Initializer;
 
 public class DbInitializer : IDbInitializer
 {
-    private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<IdentityUser> _userManager;
 
@@ -47,16 +47,16 @@ public class DbInitializer : IDbInitializer
             // create user admin
             _userManager.CreateAsync(new User()
             {
-                UserName = "Admin123",
+                UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
+                FullName = "Admin",
+                Address = "Admin123",
                 EmailConfirmed = true,
-                FullName = "Mai Dinh Phong",
-                Address = "Phong123",
-            }, "Phong123@").GetAwaiter().GetResult();
+            }, "Admin123@").GetAwaiter().GetResult();
 
 
             // finding the user which is just have created
-            var admin = _db.Users.FirstOrDefault(x => x.Email == "admin@gmail.com");
+            var admin = _db.Users.FirstOrDefault(a => a.Email == "admin@gmail.com");
 
             // add that user (admin) to admin role
             _userManager.AddToRoleAsync(admin, Constants.Roles.AdminRole).GetAwaiter().GetResult();

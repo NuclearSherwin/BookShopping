@@ -8,7 +8,7 @@
 <div class="register-page">
     <section class="login">
                 <div class="login_box">
-                    <div id="registerFomr" class="left">
+                    <div id="registerForm" class="left">
                         @* <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div> *@
                         <div class="contact">
                             <form id="account" method="post">
@@ -22,7 +22,7 @@
                                 <input asp-for="Input.Password" aria-required="true" type="password" placeholder="PASSWORD">
                                 <span id="password-validation" asp-validation-for="Input.Password" class="text-danger"></span>
                                 
-                                <input asp-for="Input.ConfirmPassword" aria-required="true" type="text" placeholder="CONFIRM PASSWORD">
+                                <input asp-for="Input.ConfirmPassword" aria-required="true" type="password" placeholder="CONFIRM PASSWORD">
                                 <span id="rePass-validation" asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 
                                 <input asp-for="Input.Address" aria-required="true" type="text" placeholder="ADDRESS">
