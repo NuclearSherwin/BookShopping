@@ -180,7 +180,7 @@ namespace BookShopping.Areas.Identity.Pages.Account
                     {
                         Text = x,
                         Value = x
-                    })
+                    })  
             };
         }
         
