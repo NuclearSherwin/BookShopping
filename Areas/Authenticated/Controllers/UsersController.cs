@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookShopping.Areas.Authenticated.Controllers;
 
 [Area(Constants.Areas.AuthenticatedArea)]
-public class UsersController : Controller
+public class UsersController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;
     private readonly UserManager<IdentityUser> _userManager;

@@ -2,7 +2,7 @@
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
-public class CategoriesController : Controller
+public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
 {
     
 }
