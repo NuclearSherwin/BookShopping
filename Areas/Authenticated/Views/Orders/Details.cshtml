@@ -1,0 +1,43 @@
+@* @model Order *@
+@* *@
+@* <h1>Order Details</h1> *@
+@* *@
+@* <div> *@
+@*     <p> *@
+@*         <strong>Order Id:</strong> @Model.Id *@
+@*     </p> *@
+@*     <p> *@
+@*         <strong>User Id:</strong> @Model.UserId *@
+@*     </p> *@
+@*     <p> *@
+@*         <strong>Address:</strong> @Model.Address *@
+@*     </p> *@
+@*     <p> *@
+@*         <strong>Total:</strong> @Model.Total *@
+@*     </p> *@
+@*     <p> *@
+@*         <strong>Order Date:</strong> @Model.OrderDate *@
+@*     </p> *@
+@* </div> *@
+@* *@
+@* <h2>Order Details</h2> *@
+@* *@
+@* <table> *@
+@*     <thead> *@
+@*     <tr> *@
+@*         <th>Book Title</th> *@
+@*         <th>Quantity</th> *@
+@*         <th>Price</th> *@
+@*     </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*     @foreach (var detail in Model.OrderDetail) *@
+@*     { *@
+@*         <tr> *@
+@*             <td>@detail.Book.Title</td> *@
+@*             <td>@detail.Quantity</td> *@
+@*             <td>@detail.Price</td> *@
+@*         </tr> *@
+@*     } *@
+@*     </tbody> *@
+@* </table> *@

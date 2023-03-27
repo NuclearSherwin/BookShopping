@@ -1,0 +1,25 @@
+@model IEnumerable<BookShopping.Models.OrderDetail>
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr>
+                <td>@detail.Book.Name</td>
+                <td>@detail.Quantity</td>
+                <td>@detail.Price.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -10460,26 +10460,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\paika\\.nuget\\packages\\": {}
+    "/home/khanh/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\work\\class\\BookShopping\\BookShopping\\BookShopping.csproj",
+      "projectUniqueName": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
       "projectName": "BookShopping",
-      "projectPath": "A:\\work\\class\\BookShopping\\BookShopping\\BookShopping.csproj",
-      "packagesPath": "C:\\Users\\paika\\.nuget\\packages\\",
-      "outputPath": "A:\\work\\class\\BookShopping\\BookShopping\\obj\\",
+      "projectPath": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
+      "packagesPath": "/home/khanh/.nuget/packages/",
+      "outputPath": "/home/khanh/RiderProjects/BookShopping/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\paika\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/khanh/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10550,7 +10548,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
       }
     }
   }

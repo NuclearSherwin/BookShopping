@@ -2,7 +2,7 @@
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
-public class ManagementsController : Controller
+public class ManagementsController : Microsoft.AspNetCore.Mvc.Controller
 {
     
 }
