@@ -18409,6 +18409,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "a:\\work\\real-projects\\BookShopping\\Areas\\Authenticated\\Views\\Categories\\Create.cshtml",
+      "TargetPath": "Areas\\Authenticated\\Views\\Categories\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "a:\\work\\real-projects\\BookShopping\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -18431,6 +18436,11 @@
     {
       "FilePath": "a:\\work\\real-projects\\BookShopping\\Areas\\Authenticated\\Views\\Orders\\OrderView.cshtml",
       "TargetPath": "Areas\\Authenticated\\Views\\Orders\\OrderView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "a:\\work\\real-projects\\BookShopping\\Areas\\Authenticated\\Views\\Categories\\Index.cshtml",
+      "TargetPath": "Areas\\Authenticated\\Views\\Categories\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18491,6 +18501,11 @@
     {
       "FilePath": "a:\\work\\real-projects\\BookShopping\\Areas\\UnAuthenticated\\Views\\Home\\Index.cshtml",
       "TargetPath": "Areas\\UnAuthenticated\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "a:\\work\\real-projects\\BookShopping\\Areas\\Authenticated\\Views\\Categories\\Update.cshtml",
+      "TargetPath": "Areas\\Authenticated\\Views\\Categories\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
