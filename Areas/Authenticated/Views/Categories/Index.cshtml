@@ -4,7 +4,7 @@
     Layout = "_Layout";
 }
 
-<div>
+<div class="container fs-3">
     <h2>Category</h2>
 
     <a class="btn btn-success" asp-area="Authenticated" asp-controller="Categories" asp-action="Create">Create new Category</a>
@@ -20,17 +20,26 @@
         <tbody>
         @foreach (var category in Model)
         {
-            <th scope="row">@category.Id</th>
-            <th scope="row">@category.Name</th>
-            <th scope="row">@category.Description</th>
-            <td>
-                <a type="button" class="btn btn-success"
-                   asp-controller="Categories"
-                   asp-action="Update"
-                   asp-route-categoryId="@category.Id">Update</a>
-            </td>
+            <tr>
+                <th scope="row">@category.Id</th>
+                <th scope="row">@category.Name</th>
+                <th scope="row">@category.Description</th>
+                <td>
+                    <a type="button" class="btn btn-success"
+                       asp-controller="Categories"
+                       asp-action="Update"
+                       asp-route-categoryId="@category.Id">
+                        Update
+                    </a>
+                    <a type="button" class="btn btn-danger"
+                       asp-controller="Categories"
+                       asp-action="Delete"
+                       asp-route-categoryId="@category.Id">
+                        Delete
+                    </a>
+                </td>
+            </tr>
         }
         </tbody>
     </table>
 </div>
-

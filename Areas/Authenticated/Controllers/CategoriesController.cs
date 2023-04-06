@@ -50,4 +50,14 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
         return RedirectToAction(nameof(Index));
 
     }
+
+    public IActionResult Delete(int categoryId)
+    {
+        var category = _db.Categories.Find(categoryId);
+        _db.Categories.Remove(category);
+        _db.SaveChanges();
+        
+        
+        return RedirectToAction(nameof(Index));
+    }
 }

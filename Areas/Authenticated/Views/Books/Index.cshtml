@@ -1,18 +1,53 @@
-﻿@model TModel
+﻿@model List<BookShopping.Models.Book>
 
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+<div class="container">
+    <h2>Books</h2>
+    <a type="button" class="btn btn-primary"asp-controller="Books"asp-action="Create">Create</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Author</th>
+    
+            <th scope="col">NoPage </th>
+            <th scope="col">ImgPath</th>
+            <th scope="col">Category Name</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <th scope="row">@book.Id</th>
+                    <th>@book.Name</th>
+                    <th>@book.Description</th>
+                    <th>@book.Price</th>
+                    <th>@book.Author</th>
+                    <th>@book.NoPage</th>
+                    <th><img src="@Url.Action("GetImage", "Books", new {id = book.FileId})" alt="image" style="width: 30px" /></th>
+                    <th>@book.Category.Name</th>
+                    
+                    <td>
+                        <a type = "button" class="btn btn-danger" 
+                           onclick="return confirm('Do you fucking wanna delete this?')"
+                           asp-controller="Books" 
+                           asp-action="Delete" 
+                           asp-route-bookId="@book.Id">Delete</a>
+                        <a type="button" class="btn btn-success" 
+                           asp-controller="Books" 
+                           asp-action="Update" 
+                           asp-route-bookId="@book.Id">Update</a>
+                    </td>
+                    
+                </tr>
+            }
+            </tbody>
+    </table>
 </div>
-</body>
-</html>
