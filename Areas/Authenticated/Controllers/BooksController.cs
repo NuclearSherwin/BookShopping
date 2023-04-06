@@ -61,12 +61,12 @@ public class BooksController : Controller
             Data = fileData
         };
         _db.Files.Add(file);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
 
         input.Book.FileId = file.Id;
         
         _db.Books.Add(input.Book);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
 
