@@ -10,7 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 62.5%;
+    font-size: 10px;
 }
 
 body {
@@ -20,6 +20,10 @@ body {
 /* header */
 #header {
     background: var(--primary-color);
+}
+
+.wrapper * {
+    font-size: 62.5%;
 }
 
 .header__top {
