@@ -75,6 +75,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcX09yZGVyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Users/ApproveCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xVc2Vyc1xBcHByb3ZlQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Users/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xVc2Vyc1xDYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xVc2Vyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

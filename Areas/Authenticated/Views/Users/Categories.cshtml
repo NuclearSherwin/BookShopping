@@ -1,13 +1,12 @@
-@model List<Category>
+﻿@model List<Category>
 
 @{
+    ViewBag.Title = "Category Management";
     Layout = "_Layout";
 }
 
 <div class="container fs-3">
     <h2>Category</h2>
-
-    <a class="btn btn-success" asp-area="Authenticated" asp-controller="Categories" asp-action="Create">Create new Category</a>
 
     <table class="table table-striped">
         <thead>
@@ -25,17 +24,17 @@
                 <th scope="row">@category.Name</th>
                 <th scope="row">@category.Description</th>
                 <td>
-                    <a type="button" class="btn btn-success"
-                       asp-controller="Categories"
-                       asp-action="Update"
-                       asp-route-categoryId="@category.Id">
-                        Update
-                    </a>
                     <a type="button" class="btn btn-danger"
                        asp-controller="Categories"
                        asp-action="Delete"
                        asp-route-categoryId="@category.Id">
                         Delete
+                    </a>
+                    <a type="button" class="btn btn-primary"
+                       asp-controller="Users"
+                       asp-action="ApproveCategory"
+                       asp-route-categoryId="@category.Id">
+                        Approve
                     </a>
                 </td>
             </tr>

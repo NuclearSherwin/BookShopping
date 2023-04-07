@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookShopping.Models;
 
@@ -32,4 +33,5 @@ public class Book
     public int CategoryId { get; set; }
     [ForeignKey("CategoryId")]
     public Category Category { get; set; }
+    
 }

@@ -272,17 +272,13 @@ body {
 }
 
 .header__nav-link-button {
-    background-color: red;
-    color: var(--white-color);
-    text-decoration: none;
     font-size: 1.5rem;
-    font-weight: 500;
-    display: flex;
-    padding-right: 3rem;
-    transition: 0.2s;
+    font-weight: bold;
+    color: white;
+    background-color: cadetblue;
+    padding: 2px 4px;
     border-radius: 5px;
-    justify-content: center;
-    
+    text-align: center;
 }
 
 .header__nav-link:hover {

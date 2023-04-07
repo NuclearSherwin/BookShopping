@@ -97,13 +97,19 @@
                                             <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Home</a>
                                         </li>
                                         <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Category</a>
+                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Category</a>
                                         </li>
                                         <li class="header__nav-item">
                                             <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Products</a>
                                         </li>
                                         <li class="header__nav-item">
                                             <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Contact</a>
+                                        </li>
+                                        <li class="header__nav-item">
+                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Users" asp-action="Categories">Admin Approved</a>
+                                        </li>
+                                        <li class="header__nav-item">
+                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Books" asp-action="Create">Books</a>
                                         </li>
                                     </ul>
                                 </div>

@@ -35,12 +35,15 @@ public class BooksController : Controller
         var upsertVM = new UpsetBookViewModel()
         {
             Book = new Book(),
-            Categories = _db.Categories.ToList().Select(_ => new SelectListItem()
-            {
-                Value = _.Id.ToString(),
-                Text = _.Name
+            Categories = _db.Categories.ToList()
+                .Where(c => c.Status == Category.StatusEnum.Approved) // filter approved categories
+                .ToList()
+                .Select(_ => new SelectListItem()
+                {
+                    Value = _.Id.ToString(),
+                    Text = _.Name
 
-            }).ToList()
+                }).ToList()
         };
         return View(upsertVM);
     }
@@ -64,7 +67,7 @@ public class BooksController : Controller
         await _db.SaveChangesAsync();
 
         input.Book.FileId = file.Id;
-        
+
         _db.Books.Add(input.Book);
         await _db.SaveChangesAsync();
         return RedirectToAction(nameof(Index));

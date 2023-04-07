@@ -19,7 +19,7 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     public IActionResult Index()
     {
         // to filter all categories that have been approved by the admin
-        var categories = _db.Categories.Where(c => c.IsApproved == true).ToList();
+        var categories = _db.Categories.Where(c => c.Status == Category.StatusEnum.Approved == true).ToList();
         
         return View(categories);
     }
@@ -33,7 +33,8 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     public IActionResult Create(Category category)
     {
         // By default, the status is set to false
-        category.IsApproved = false;
+        var pendingCategory =  Category.StatusEnum.Pending;
+        category.Status = pendingCategory;
         _db.Categories.Add(category);
         _db.SaveChanges();
         return RedirectToAction(nameof(Index));

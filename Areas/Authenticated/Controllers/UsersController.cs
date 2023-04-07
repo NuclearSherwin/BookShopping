@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using BookShopping.Constants;
 using BookShopping.Data;
+using BookShopping.Models;
 using BookShopping.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BookShopping.Areas.Authenticated.Controllers;
 
 [Area(Constants.Areas.AuthenticatedArea)]
+[Authorize(Roles = Constants.Roles.AdminRole)]
 public class UsersController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;
@@ -17,7 +19,8 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
 
     public UsersController(ApplicationDbContext db, 
         UserManager<IdentityUser> userManager, 
-        RoleManager<IdentityRole> roleManager)
+        RoleManager<IdentityRole> roleManager
+    )
     {
         _db = db;
         _userManager = userManager;
@@ -70,6 +73,8 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
         return RedirectToAction(nameof(Index));
     }
 
+
+
     [HttpGet]
     public async Task<IActionResult> Delete(string id)
     {
@@ -110,4 +115,33 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
         }
         return View(resetPasswordViewModel);
     }
+    
+    // get all pending categories
+    [HttpGet]
+    public IActionResult Categories()
+    {
+        // to filter all categories that have been approved by the admin
+        var categories = _db.Categories.Where(c => c.Status == Category.StatusEnum.Pending).ToList();
+        
+        return View(categories);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> ApproveCategory(int categoryId)
+    {
+        var category = await _db.Categories.FindAsync(categoryId);
+        return View(category);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> ApproveCategory(Category category)
+    {
+        // change to status to approve
+        var approvedTheCategory =  Category.StatusEnum.Approved;
+        category.Status = approvedTheCategory;
+        _db.Categories.Update(category);
+        await _db.SaveChangesAsync();
+        return RedirectToAction(nameof(Categories));
+    }
+    
 }
