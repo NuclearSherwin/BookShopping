@@ -25,11 +25,19 @@ public class DbInitializer : IDbInitializer
             // checking database, if not migration then migrate
             try
             {
-                if (_db.Database.GetPendingMigrations().Any()) _db.Database.Migrate();
+                if (_db.Database.GetPendingMigrations().Any()) 
+                {
+                    _db.Database.Migrate();
+                    Console.WriteLine("Migrations applied successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("No pending migrations.");
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Error applying migrations: " + e.Message);
                 throw;
             }
 

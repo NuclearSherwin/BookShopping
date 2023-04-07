@@ -271,6 +271,20 @@ body {
     transition: 0.2s;
 }
 
+.header__nav-link-button {
+    background-color: red;
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    padding-right: 3rem;
+    transition: 0.2s;
+    border-radius: 5px;
+    justify-content: center;
+    
+}
+
 .header__nav-link:hover {
     text-decoration: none;
     color: var(--white-color);

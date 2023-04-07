@@ -1,4 +1,5 @@
 ﻿using BookShopping.Data;
+using BookShopping.IRepository;
 using BookShopping.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,8 +18,10 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var category = _db.Categories.ToList();
-        return View(category);
+        // to filter all categories that have been approved by the admin
+        var categories = _db.Categories.Where(c => c.IsApproved == true).ToList();
+        
+        return View(categories);
     }
 
     [HttpGet]
@@ -29,6 +32,8 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public IActionResult Create(Category category)
     {
+        // By default, the status is set to false
+        category.IsApproved = false;
         _db.Categories.Add(category);
         _db.SaveChanges();
         return RedirectToAction(nameof(Index));
