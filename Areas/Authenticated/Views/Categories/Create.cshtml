@@ -7,16 +7,20 @@
 <h2>title</h2>
 <br>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" type="text" class="form-control" id="exampleInputCategory" placeholder="Type">
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" type="text" class="form-control" id="exampleInputCategory" placeholder="Type">
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" type="text" class="form-control" id="exampleInputCategory" placeholder="Description">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>
+        <a asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Return to Categories</a>
+        <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
     </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <input asp-for="Description" type="text" class="form-control" id="exampleInputCategory" placeholder="Description">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
 </br>
+

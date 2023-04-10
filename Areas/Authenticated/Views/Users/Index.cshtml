@@ -9,15 +9,18 @@
     <div class="row">
         <div class="col-6">
             <h1>User Table</h1>
-        </div>
-        <div class="col-6 d-flex justify-content-end align-items-center">
-            <div class="">
-                <a class="btn btn-sm btn-outline-primary" asp-area="Identity"
-                   asp-page="/Account/Register">
-                    Register
-                </a>
+            <div>
+                <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
             </div>
         </div>
+        @* <div class="col-6 d-flex justify-content-end align-items-center"> *@
+        @*     <div class=""> *@
+        @*         <a class="btn btn-sm btn-outline-primary" asp-area="Identity" *@
+        @*            asp-page="/Account/Register"> *@
+        @*             Register *@
+        @*         </a> *@
+        @*     </div> *@
+        @* </div> *@
     </div>
 
     <div class="mt-3 mb-3">
