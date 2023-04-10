@@ -82,10 +82,6 @@
                             <i class="fa-solid fa-lock-open"></i>
                         </a>
                     }
-                    <a asp-area="Authenticated" asp-controller="Users" asp-action="ConfirmEmail"
-                       asp-route-id="@obj.Id" class="btn btn-sm btn-outline-success">
-                        <i class="fa fa-key" aria-hidden="true"></i>
-                    </a>
                     @if (User.IsInRole("Admin"))
                     {
                         <a asp-area="Authenticated" asp-controller="Users" asp-action="Delete"

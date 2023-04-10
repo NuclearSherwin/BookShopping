@@ -6,6 +6,7 @@ using BookShopping.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
@@ -144,4 +145,44 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
         return RedirectToAction(nameof(Categories));
     }
     
+    // edit profile
+    [HttpGet]
+    public IActionResult EditOwnProfile(string id)
+    {
+        var user = _db.Users.Find(id);
+        return View(user);
+    }
+
+    [HttpPost]
+    public IActionResult EditOwnProfile(User user)
+    {
+        if (ModelState.IsValid)
+        {
+            var ownUser = _db.Users.Find(user.Id);
+            if (ownUser == null)
+            {
+                return NotFound();
+            }
+            ownUser.FullName = user.FullName;
+            _db.Users.Update(ownUser);
+
+            _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        return View(user);
+    }
+
+    public async Task<IActionResult> Edit(string id)
+    {
+        var user = _db.Users.Find(id);
+        var roleTemp = await _userManager.GetRolesAsync(user);
+        var role = roleTemp.First();
+
+        return RedirectToAction("EditOwnProfile", new { id });
+
+
+    }
+
 }
