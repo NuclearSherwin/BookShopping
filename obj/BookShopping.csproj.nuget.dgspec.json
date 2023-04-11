@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj": {}
+    "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj": {}
   },
   "projects": {
-    "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj": {
+    "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
+        "projectUniqueName": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
         "projectName": "BookShopping",
-        "projectPath": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
-        "packagesPath": "C:\\Users\\paika\\.nuget\\packages\\",
-        "outputPath": "A:\\work\\real-projects\\BookShopping\\obj\\",
+        "projectPath": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
+        "packagesPath": "/home/khanh/.nuget/packages/",
+        "outputPath": "/home/khanh/RiderProjects/BookShopping/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\paika\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/khanh/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -38,6 +38,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.14, )"
@@ -69,6 +73,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.13, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[3.6.1, )"
             }
           },
           "imports": [
@@ -90,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
         }
       }
     }
