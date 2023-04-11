@@ -2,6 +2,8 @@
     Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<BookShopping.Models.Book>
+
 
 <div class="wrapper">
 <header id="header">
@@ -71,7 +73,7 @@
                                     </div>
                                 </div>
             
-                                <a href="cart.html" class="col-lg-1 col-md-1 col-sm-0 header__cart">
+                                <a asp-area="Authenticated" asp-controller="Carts" asp-action="Index" class="col-lg-1 col-md-1 col-sm-0 header__cart">
                                     <div class="header__cart-icon-wrap">
                                         <span class="header__notice"></span>
                                         <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
@@ -234,7 +236,34 @@
                             </div>
                         </nav>
     
-                        <div class="row product__panel"></div>
+                        <div class="row product__panel">
+                            @foreach (var book in Model)
+                            {
+                                <div
+                                    key={product._id}
+                                    class="product__panel-item col-lg-3 col-md-4 col-sm-6">
+                                    <div class="product__panel-item-wrap">
+                                        <div class="product__panel-img-wrap">
+                                            <img
+                                                height="100%"
+                                                src="/Authenticated/Books/GetImage/@book.FileId"
+                                                alt="@book.Description"
+                                                class="product__panel-img"/>
+                                        </div>
+                                        <h3 class="product__panel-heading">
+                                            <a class="product__panel-link">
+                                                @book.Name
+                                            </a>
+                                        </h3>
+                                        <div class="product__panel-price">
+                                            <span class="product__panel-price-current">
+                                                $ @book.Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>   
+                            }
+                        </div>
                     </article>
                 </div>
             </div>

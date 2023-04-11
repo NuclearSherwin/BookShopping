@@ -22,32 +22,33 @@
         </tr>
         </thead>
         <tbody>
-            @foreach (var book in Model)
-            {
-                <tr>
-                    <th scope="row">@book.Id</th>
-                    <th>@book.Name</th>
-                    <th>@book.Description</th>
-                    <th>@book.Price</th>
-                    <th>@book.Author</th>
-                    <th>@book.NoPage</th>
-                    <th><img src="@Url.Action("GetImage", "Books", new {id = book.FileId})" alt="image" style="width: 30px" /></th>
-                    <th>@book.Category.Name</th>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <th scope="row">@book.Id</th>
+                <th>@book.Name</th>
+                <th>@book.Description</th>
+                <th>@book.Price</th>
+                <th>@book.Author</th>
+                <th>@book.NoPage</th>
+                <th><img src="@Url.Action("GetImage", "Books", new {id = book.FileId})" alt="image" style="width: 30px" /></th>
+                <th>@book.Category.Name</th>
                     
-                    <td>
-                        <a type = "button" class="btn btn-danger" 
-                           onclick="return confirm('Do you fucking wanna delete this?')"
-                           asp-controller="Books" 
-                           asp-action="Delete" 
-                           asp-route-bookId="@book.Id">Delete</a>
-                        <a type="button" class="btn btn-success" 
-                           asp-controller="Books" 
-                           asp-action="Update" 
-                           asp-route-bookId="@book.Id">Update</a>
-                    </td>
+                <td>
+                    <a type = "button" class="btn btn-danger" 
+                       onclick="return confirm('Do you fucking wanna delete this?')"
+                       asp-controller="Books" 
+                       asp-action="Delete" 
+                       asp-route-bookId="@book.Id">Delete</a>
+                    <a type="button" class="btn btn-success" 
+                       asp-controller="Books" 
+                       asp-action="Update" 
+                       asp-route-bookId="@book.Id">Update</a>
+                </td>
                     
-                </tr>
-            }
-            </tbody>
+            </tr>
+        }
+        </tbody>
     </table>
+    <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
 </div>

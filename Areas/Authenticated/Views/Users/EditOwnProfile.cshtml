@@ -1,0 +1,28 @@
+﻿@model BookShopping.Models.User
+
+@{
+    ViewBag.Title = "Edit profile";
+    Layout = "_Layout";
+}
+
+<h2>Edit profile</h2>
+<form method="post">
+
+    <input asp-for="Id" class="form-control" hidden>
+
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control">
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control">
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div>
+    <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
+</div>

@@ -10,13 +10,13 @@ using Microsoft.EntityFrameworkCore;
 namespace BookShopping.Areas.Authenticated.Controllers;
 
 [Area(Constants.Roles.AuthenticatedArea)]
-[Authorize(Roles = Constants.Roles.CustomerRole)]
+// [Authorize(Roles = Constants.Roles.CustomerRole)]
 public class CartsController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;
 
 
-    public CartsController(ApplicationDbContext db, ISendMailService emailSender)
+    public CartsController(ApplicationDbContext db)
     {
         _db = db;
 
