@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
-[Area(Constants.Roles.AuthenticatedArea)]
+[Area(Constants.Areas.AuthenticatedArea)]
 // [Authorize(Roles = Constants.Roles.CustomerRole)]
 public class CartsController : Microsoft.AspNetCore.Mvc.Controller
 {
