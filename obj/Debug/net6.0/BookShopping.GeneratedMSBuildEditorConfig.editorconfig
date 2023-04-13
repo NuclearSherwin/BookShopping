@@ -67,6 +67,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xDYXRlZ29yaWVzXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Managements/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xNYW5hZ2VtZW50c1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Managements/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xNYW5hZ2VtZW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [A:/work/real-projects/BookShopping/Areas/Authenticated/Views/Orders/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQXV0aGVudGljYXRlZFxWaWV3c1xPcmRlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -153,6 +161,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [A:/work/real-projects/BookShopping/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[A:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/Home/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5BdXRoZW50aWNhdGVkXFZpZXdzXEhvbWVcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [A:/work/real-projects/BookShopping/Areas/UnAuthenticated/Views/_ViewImports.cshtml]

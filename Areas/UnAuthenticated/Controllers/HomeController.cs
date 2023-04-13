@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
 using BookShopping.Data;
 using BookShopping.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,6 +52,78 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        
+        // product detail
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+            var bookSelected = _db.Books
+                .Include(_ => _.Category)
+                .FirstOrDefault(_ => _.Id == id);
+
+            Cart cart = new Cart()
+            {
+                Book = bookSelected,
+                BookId = bookSelected.Id
+            };
+
+            return View(cart);
+        }
+        
+        // add product to cart
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        [Authorize]
+        public IActionResult Detail(Cart cartObj)
+        {
+            cartObj.Id = 0;
+            
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+
+            cartObj.UserId = claim.Value;
+
+            if (cartObj.UserId == null || cartObj.BookId == null)
+            {
+                var bookFromDb = _db.Books
+                    .Include(_ => _.Category)
+                    .FirstOrDefault(b => b.Id == cartObj.BookId);
+
+                Cart cart = new Cart()
+                {
+                    Book = bookFromDb,
+                    BookId = bookFromDb.Id
+                };
+
+                return View(cart);
+            }
+            
+            Cart cartFromDb = _db.Carts
+                .FirstOrDefault(c => c.UserId == cartObj.UserId && c.BookId == cartObj.BookId);
+
+            if (cartFromDb == null)
+            {
+                _db.Add(cartObj);
+                ViewData["Message"] = "Order successfully!";
+            }
+            else
+            {
+                cartFromDb.Count += cartFromDb.Count;
+                _db.Update(cartFromDb);
+            }
+
+            _db.SaveChanges();
+            
+            // count product by using session
+            var count = _db.Carts
+                .Where(c => c.UserId == cartObj.UserId)
+                .ToList().Count();
+            
+            
+            HttpContext.Session.SetInt32(Constants.Session.ssShoppingCart, count);
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

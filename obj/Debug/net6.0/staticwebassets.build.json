@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Bw3Aj18TUUQCfL4C2mDKFFUc1J+Gdcu4utk5E3UWPPI=",
+  "Hash": "vJ/ob1xZUZJd59kvnbE/ea9b+z2BLsNmQx6q01ArPxc=",
   "Source": "BookShopping",
   "BasePath": "_content/BookShopping",
   "Mode": "Default",
@@ -236,6 +236,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fonts\\fontawesome\\all.min.css"
+    },
+    {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\images\\fpt-logo-5B8F17203A-seeklogo.com.png",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "images/fpt-logo-5B8F17203A-seeklogo.com.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fpt-logo-5B8F17203A-seeklogo.com.png"
+    },
+    {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\images\\recetlcy-add-pic.png",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "images/recetlcy-add-pic.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\recetlcy-add-pic.png"
     },
     {
       "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\js\\jq.js",

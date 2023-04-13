@@ -2,124 +2,13 @@
     Layout = "_Layout";
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.VisualBasic
+@using BookShopping.Constants
 @model IEnumerable<BookShopping.Models.Book>
 
 
 <div class="wrapper">
-<header id="header">
-                    <!-- header top -->
-                    <div class="header__top">
-                        <div class="container">
-                            <section class="row flex">
-                                <div class="col-lg-5 col-md-0 col-sm-0 heade__top-left">
-                                    <span>Book Shopping</span>
-                                </div>
-            
-                                <nav class="col-lg-7 col-md-0 col-sm-0 header__top-right">
-                                    <ul class="header__top-list">
-                                        <li class="header__top-item">
-                                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Orders</a>
-                                        </li>
-                                        <li class="header__top-item">
-                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Users" asp-action="Index">Users</a>
-                                        </li>
-                                        <partial name="_LoginPartial" />
-                                    </ul>
-                                </nav>
-                            </section>
-                        </div>
-                    </div>
-                    <!--end header top -->
-            
-                    <!-- header bottom -->
-                    <div class="header__bottom">
-                        <div class="container">
-                            <section class="row">
-                                <div class="col-lg-3 col-md-4 col-sm-12 header__logo">
-                                    <h1 class="header__heading">
-                                        <a href="#" class="header__logo-link">
-                                            <img src="./assets/images1/logo1.png" alt="Logo" class="header__logo-img">
-                                        </a>
-                                    </h1>
-                                </div>
-            
-                                <div class="col-lg-6 col-md-7 col-sm-0 header__search">
-                                    <select name="" id="" class="header__search-select">
-                                        <option value="0">All</option>
-                                        <option value="1">Sách tiếng việt</option>
-                                        <option value="2">Sách sách nước ngoài</option>
-                                        <option value="3">Manga-Comic</option>
-                                        
-                                    </select>
-                                    <input type="text" class="header__search-input" placeholder="Tìm kiếm tại đây...">
-                                    <button class="header__search-btn">
-                                        <div class="header__search-icon-wrap">
-                                            <i class="fas fa-search header__search-icon"></i>
-                                        </div>
-                                    </button>
-                                </div>
-            
-                                <div class="col-lg-2 col-md-0 col-sm-0 header__call">
-                                    <div class="header__call-icon-wrap">
-                                        <i class="fas fa-phone-alt header__call-icon"></i>  
-                                    </div>
-                                    <div class="header__call-info">
-                                        <div class="header__call-text">
-                                            Gọi điện tư vấn
-                                        </div>
-                                        <div class="header__call-number">
-                                            039.882.3232
-                                        </div>
-                                    </div>
-                                </div>
-            
-                                <a asp-area="Authenticated" asp-controller="Carts" asp-action="Index" class="col-lg-1 col-md-1 col-sm-0 header__cart">
-                                    <div class="header__cart-icon-wrap">
-                                        <span class="header__notice"></span>
-                                        <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
-                                    </div>
-                                </a>
-                            </section>
-                        </div>   
-                    </div>
-                    <!--end header bottom -->
-            
-                    <!-- header nav -->
-                    <div class="header__nav">
-                        <div class="container">
-                            <section class="row">
-                                <div class="header__nav-menu-wrap col-lg-3 col-md-0 col-sm-0">
-                                    <i class="fas fa-bars header__nav-menu-icon"></i>
-                                    <div class="header__nav-menu-title">Danh mục sản phẩm</div>
-                                </div>
-            
-                                <div class="header__nav col-lg-9 col-md-0 col-sm-0">
-                                    <ul class="header__nav-list">
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Home</a>
-                                        </li>
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Category</a>
-                                        </li>
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Products</a>
-                                        </li>
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Contact</a>
-                                        </li>
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Users" asp-action="Categories">Admin Approved</a>
-                                        </li>
-                                        <li class="header__nav-item">
-                                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Books" asp-action="Create">Books</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </header>
-            <!--end header nav -->
+   
             <!-- slide - menu list -->
                     <section class="menu-slide">
                         <div class="container">
@@ -146,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <div class="bestselling__heading-wrap">
-                        <img src="./assets/images/bestselling.png" alt="Sản phẩm bán chạy"
+                        <img src="/images/fpt-logo-5B8F17203A-seeklogo.com.png" alt="Sản phẩm bán chạy"
                         class="bestselling__heading-img">
                         <div class="bestselling__heading">Top bán chạy nhất tuần</div>
                     </div>
@@ -179,29 +68,20 @@
                         <div class="product__sidebar-heading">
                             <div class=""></div>
                             <h2 class="product__sidebar-title">
-                                <img src="./assets/images1/item/1380754_batman_comic_hero_superhero_icon.png" alt="" class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
-                                Manga - Comic</h2>
+                                <img src="/images/recetlcy-add-pic.png" alt="" class="menu__item-icon" id="Capa_1" enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512">
+                                Recently added</h2>
                         </div>
     
                         <nav class="product__sidebar-list">
     
                             <div class="row">
-                                <div class="product__sidebar-item col-lg-6">
-                                    <img src="./assets/images1/product/【グラブル】「炭治郎&禰豆子&善逸&伊之助」の評価_性能検証｜鬼滅コラボ【グランブルーファンタジー】 - ゲームウィズ(GameWith).jfif" alt="" class="product__sidebar-item-img">
-                                    <a href="" class="product__sidebar-item-name">Manga</a>
-                                </div>
-                                <div class="product__sidebar-item col-lg-6">
-                                    <img src="./assets/images1/product/My Anime For Life.jfif" class="product__sidebar-item-img">
-                                    <a href="" class="product__sidebar-item-name">Series Manga</a>
-                                </div>
-                                <div class="product__sidebar-item col-lg-6">
-                                    <img src="./assets/images1/product/twd2_biaao_demo.jpg" alt="" class="product__sidebar-item-img">
-                                    <a href="" class="product__sidebar-item-name">Comics</a>
-                                </div>
-                                <div class="product__sidebar-item col-lg-6">
-                                    <img src="./assets/images1/product/8936054081882.jpg" alt="" class="product__sidebar-item-img">
-                                    <a href="" class="product__sidebar-item-name">Truyện tranh Việt Nam</a>
-                                </div>
+                                @foreach (var book in Model)
+                                {
+                                    <div class="product__sidebar-item col-lg-6">
+                                        <img src="/Authenticated/Books/GetImage/@book.FileId" alt="" class="product__sidebar-item-img">
+                                        <a href="" class="product__sidebar-item-name">@book.Name</a>
+                                    </div>
+                                }
                             </div>
                         </nav>
     
@@ -218,16 +98,16 @@
                         <nav class="row">
                             <ul class="product__list hide-on-mobile">
                                 <li class="product__item product__item--active">
-                                    <a href="#" class="product__link">Hành động - Phiêu lưu</a>
+                                    <a href="#" class="product__link">Action - Adventure</a>
                                 </li>
                                 <li class="product__item">
-                                    <a href="#" class="product__link">Bí ẩn - Siêu nhiên</a>
+                                    <a href="#" class="product__link">Mysterious</a>
                                 </li>
                                 <li class="product__item">
-                                    <a href="#" class="product__link">Giả tưởng - Khoa học</a>
+                                    <a href="#" class="product__link">Fantasy - Science</a>
                                 </li>
                                 <li class="product__item">
-                                    <a href="#" class="product__link">Lãng mạn - Hài kịch</a>
+                                    <a href="#" class="product__link">Business - School</a>
                                 </li>
                             </ul>
     
@@ -257,8 +137,13 @@
                                         </h3>
                                         <div class="product__panel-price">
                                             <span class="product__panel-price-current">
-                                                $ @book.Name
+                                                $ @book.Price
                                             </span>
+                                        </div>
+                                        <div>
+                                            <a asp-controller="Home"
+                                               asp-action="Detail" class="btn-primary btn form-control"
+                                               asp-route-id="@book.Id">Detail</a>
                                         </div>
                                     </div>
                                 </div>   
@@ -271,264 +156,266 @@
         <!--end product -->
     
         <!-- product love -->
-        <section class="product__love">
-            <div class="container">
-                <div class="row bg-white">
-                    <div class="col-lg-12 col-md-12 col-sm-12 product__love-title">
-                        <h2 class="product__love-heading">
-                            The books may be you like
-                        </h2>
-                    </div>
-                </div>
-                <div class="row bg-white">
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product/image_187163.jpg" alt="" class="product__panel-img">
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">Tuổi Thơ Dữ Dội - Tập 2 (Tái Bản 2019)</a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide">
-                                80.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                69.000đ
-                            </span>
-                        </div>  
-                    </div>
-    
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product/image_188285.jpg" alt="" class="product__panel-img">
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">Chuyện Con Mèo Dạy Hải Âu Bay</a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide">
-                                49.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                34.300đ
-                            </span>
-                        </div> 
-                    </div>
-    
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product/8936186542176.jpg" alt="" class="product__panel-img">
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">Tôi thích một cô gái nhưng không dám ngỏ lời</a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide 
-                            ">
-                                109.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                70.000đ
-                            </span>
-                        </div>
-                    </div>
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product/biamem.jpg" alt="" class="product__panel-img">
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">Con Chim Xanh Biếc Bay Về - Tặng Kèm 6 Postcard</a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide">
-                                150.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                112.500đ
-                            </span>
-                        </div> 
-                    </div>
-    
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product//8936049524905.jpg" alt="" class="product__panel-img" >
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">5 Centimet Trên Giây</a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide">
-                                50.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                39.500đ
-                            </span>
-                        </div> 
-                    </div>
-    
-                    <div class="product__panel-item col-lg-2 col-md-3 col-sm-6">
-                        <div class="product__panel-img-wrap">
-                            <img src="./assets/images1/product/bia1_tobinhyen_2_1_1.jpg" alt="" class="product__panel-img" >
-                        </div>
-                        <h3 class="product__panel-heading">
-                            <a href="#" class="product__panel-link">Tô Bình Yên Vẽ Hạnh Phúc 
-                            </a>
-                        </h3>
-                        <div class="product__panel-rate-wrap">
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                            <i class="fas fa-star product__panel-rate"></i>
-                        </div>
-    
-                        <div class="product__panel-price">
-                            <span class="product__panel-price-old product__panel-price-old-hide">
-                                78.000đ
-                            </span>
-                            <span class="product__panel-price-current">
-                                63.960đ
-                            </span>
-                        </div> 
-                    </div>
-                </div>
-            </div>
-        </section>
+@*         <section class="product__love"> *@
+@*             <div class="container"> *@
+@*                 <div class="row bg-white"> *@
+@*                     <div class="col-lg-12 col-md-12 col-sm-12 product__love-title"> *@
+@*                         <h2 class="product__love-heading"> *@
+@*                             The books may be you like *@
+@*                         </h2> *@
+@*                     </div> *@
+@*                 </div> *@
+@*                 <div class="row bg-white"> *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product/image_187163.jpg" alt="" class="product__panel-img"> *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">Tuổi Thơ Dữ Dội - Tập 2 (Tái Bản 2019)</a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide"> *@
+@*                                 80.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 69.000đ *@
+@*                             </span> *@
+@*                         </div>   *@
+@*                     </div> *@
+@*      *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product/image_188285.jpg" alt="" class="product__panel-img"> *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">Chuyện Con Mèo Dạy Hải Âu Bay</a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide"> *@
+@*                                 49.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 34.300đ *@
+@*                             </span> *@
+@*                         </div>  *@
+@*                     </div> *@
+@*      *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product/8936186542176.jpg" alt="" class="product__panel-img"> *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">Tôi thích một cô gái nhưng không dám ngỏ lời</a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide  *@
+@*                             "> *@
+@*                                 109.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 70.000đ *@
+@*                             </span> *@
+@*                         </div> *@
+@*                     </div> *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product/biamem.jpg" alt="" class="product__panel-img"> *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">Con Chim Xanh Biếc Bay Về - Tặng Kèm 6 Postcard</a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide"> *@
+@*                                 150.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 112.500đ *@
+@*                             </span> *@
+@*                         </div>  *@
+@*                     </div> *@
+@*      *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product//8936049524905.jpg" alt="" class="product__panel-img" > *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">5 Centimet Trên Giây</a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide"> *@
+@*                                 50.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 39.500đ *@
+@*                             </span> *@
+@*                         </div>  *@
+@*                     </div> *@
+@*      *@
+@*                     <div class="product__panel-item col-lg-2 col-md-3 col-sm-6"> *@
+@*                         <div class="product__panel-img-wrap"> *@
+@*                             <img src="./assets/images1/product/bia1_tobinhyen_2_1_1.jpg" alt="" class="product__panel-img" > *@
+@*                         </div> *@
+@*                         <h3 class="product__panel-heading"> *@
+@*                             <a href="#" class="product__panel-link">Tô Bình Yên Vẽ Hạnh Phúc  *@
+@*                             </a> *@
+@*                         </h3> *@
+@*                         <div class="product__panel-rate-wrap"> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                             <i class="fas fa-star product__panel-rate"></i> *@
+@*                         </div> *@
+@*      *@
+@*                         <div class="product__panel-price"> *@
+@*                             <span class="product__panel-price-old product__panel-price-old-hide"> *@
+@*                                 78.000đ *@
+@*                             </span> *@
+@*                             <span class="product__panel-price-current"> *@
+@*                                 63.960đ *@
+@*                             </span> *@
+@*                         </div>  *@
+@*                     </div> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </section> *@
 <!--end product love -->
+@* footer *@
 <!-- footer -->
-    <footer>
-        <section class="footer__top">
-            <div class="container">
-                <div class="row">
-                    <article class="footer__top-intro col-lg-5 col-md-4 col-sm-6">
-                        <h4 class="footer__top-intro-heading">
-                            About us
-                        </h4>
-                        <div class="footer__top-intro-content">
-                            Edubook là cửa hàng luôn cung cấp cho các bạn tìm tòi tri thức, đam mê
-                            đọc sách trên khắp cả nước.Chúng tôi sẽ liên tục cập
-                            nhật những cuốn sách hay nhất, mới nhất, chất lượng nhất
-                            giúp người đọc có những cuốn sách hay nhất để đọc! <br> <br>
-                            Điện thoại: 0352 860 701 <br>
-                            Email: teamed2@gmail.com <br>
-                            Zalo: 039.882.3232 <br>
+<footer>
+    <section class="footer__top">
+        <div class="container">
+            <div class="row">
+                <article class="footer__top-intro col-lg-5 col-md-4 col-sm-6">
+                    <h4 class="footer__top-intro-heading ">
+                        About us
+                    </h4>
+                    <div class="footer__top-intro-content">
+                        FPTBook is a store that always provides you with knowledge and passion
+                        Read books all over the country. We will constantly updat
+                        Update the best, newest, best quality books
+                        help readers have the best books to read!<br> <br>
+                        Phone: 0869.502.969 This website is coded by Phong, Khanh, Hieu <br>
+                        Email: phongmdgcd201883@fpt.edu.vn <br>
+                        Zalo: 0869.502.969 (Phong Ice) <br>
+                    </div>
+                </article>
+
+                <article class="footer__top-policy col-lg-3 col-md-4 col-sm-6">
+                    <h4 class="footer__top-policy-heading">
+                        Buy Policy
+                    </h4>
+
+                    <ul class="footer__top-policy-list">
+                        <li class="footer__top-policy-item">
+                            <a href="#" class="footer__top-policy-link">Order method</a>
+                        </li>
+                        <li class="footer__top-policy-item">
+                            <a href="#" class="footer__top-policy-link">Payments</a>
+                        </li>
+                        <li class="footer__top-policy-item">
+                            <a href="#" class="footer__top-policy-link">Shipping method</a>
+                        </li>
+                        <li class="footer__top-policy-item">
+                            <a href="#" class="footer__top-policy-link">return policy</a>
+                        </li>
+                        <li class="footer__top-policy-item">
+                            <a href="#" class="footer__top-policy-link">How to use</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="footer__top-contact-wrap col-lg-4 col-md-4 col-sm-6">
+                    <h4 class="footer__top-contact-heading">
+                        Hotline contact
+                    </h4>
+
+                    <div class="footer__top-contact">
+                        <div class="footer__top-contact-icon">
+                            <img src="./assets/images/phone_top.png" class="footer__top-contact-img">
                         </div>
-                    </article>
 
-                    <article class="footer__top-policy col-lg-3 col-md-4 col-sm-6">
-                        <h4 class="footer__top-policy-heading">
-                            Chính sách mua hàng
-                        </h4>
-
-                        <ul class="footer__top-policy-list">
-                            <li class="footer__top-policy-item">
-                                <a href="#" class="footer__top-policy-link">Hình thức đặt hàng</a>
-                            </li>
-                            <li class="footer__top-policy-item">
-                                <a href="#" class="footer__top-policy-link">Hình thức thanh toán</a>
-                            </li>
-                            <li class="footer__top-policy-item">
-                                <a href="#" class="footer__top-policy-link">Phương thức vận chuyển</a>
-                            </li>
-                            <li class="footer__top-policy-item">
-                                <a href="#" class="footer__top-policy-link">Chính sách đổi trả</a>
-                            </li>
-                            <li class="footer__top-policy-item">
-                                <a href="#" class="footer__top-policy-link">Hướng dẫn sử dụng</a>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article class="footer__top-contact-wrap col-lg-4 col-md-4 col-sm-6">
-                        <h4 class="footer__top-contact-heading">
-                            Hotline liên hệ
-                        </h4>
-
-                        <div class="footer__top-contact">
-                            <div class="footer__top-contact-icon">
-                                <img src="./assets/images/phone_top.png" class="footer__top-contact-img">
+                        <div class="footer__top-contact-phone-wrap">
+                            <div class="footer__top-contact-phone">
+                                0869502969
                             </div>
-
-                            <div class="footer__top-contact-phone-wrap">
-                                <div class="footer__top-contact-phone">
-                                    039.882.3232
-                                </div>
-                                <div class="footer__top-contact-des">
-                                    (Giải đáp thắc mắc 24/24)
-                                </div>
+                            <div class="footer__top-contact-des">
+                                Questions & Answers
                             </div>
                         </div>
+                    </div>
 
-                        <h4 class="footer__top-contact-heading">
-                            Kết nối với chúng tôi
-                        </h4>
+                    <h4 class="footer__top-contact-heading">
+                        Kết nối với chúng tôi
+                    </h4>
 
-                        <div class="footer__top-contact-social">
-                            <a href="#" class="footer__top-contact-social-link">
-                                <img src="./assets/images/facebook.png">
-                            </a>
-                            <a href="#" class="footer__top-contact-social-link">
-                                <img src="./assets/images/youtube.png">
-                            </a>
-                            <a href="#" class="footer__top-contact-social-link">
-                                <img src="./assets/images/tiktok.png">
-                            </a>
-                            <a href="#" class="footer__top-contact-social-link">
-                                <img src="./assets/images/zalo.png">
-                            </a>
-                        </div>
-                    </article>
-                </div>
+                    <div class="footer__top-contact-social">
+                        <a href="#" class="footer__top-contact-social-link">
+                            <img src="./assets/images/facebook.png">
+                        </a>
+                        <a href="#" class="footer__top-contact-social-link">
+                            <img src="./assets/images/youtube.png">
+                        </a>
+                        <a href="#" class="footer__top-contact-social-link">
+                            <img src="./assets/images/tiktok.png">
+                        </a>
+                        <a href="#" class="footer__top-contact-social-link">
+                            <img src="./assets/images/zalo.png">
+                        </a>
+                    </div>
+                </article>
             </div>
-        </section>
-        <section class="footer__bottom">
-            <div class="container">
-                <div class="row">
-                    <span class="footer__bottom-content">quyền thuộc về edubook | Thiết kế bởi team ED2 </span>
-                </div>
+        </div>
+    </section>
+    <section class="footer__bottom">
+        <div class="container">
+            <div class="row">
+                <span class="footer__bottom-content">Hello everyone Khanh Phong Hieu^^</span>
             </div>
-        </section>
-    </footer>
-    <!-- end footer -->
+        </div>
+    </section>
+</footer>
+<!-- end footer -->
+
 
 </div>

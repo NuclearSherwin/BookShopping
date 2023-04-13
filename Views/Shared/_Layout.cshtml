@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using BookShopping.Constants
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,25 +20,149 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 </head>
 <body>
+
+
+
 <div class="app">
-    
-    @RenderBody()   
-    
+@* navbar *@
+<header id="header">
+    <!-- header top -->
+    <div class="header__top">
+        <div class="container">
+            <section class="row flex">
+                <div class="col-lg-5 col-md-0 col-sm-0 heade__top-left">
+                    <span>Book Shopping</span>
+                </div>
+
+                <nav class="col-lg-7 col-md-0 col-sm-0 header__top-right">
+                    <ul class="header__top-list">
+                        <li class="header__top-item">
+                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Managements" asp-action="Index">Orders</a>
+                        </li>
+                        <li class="header__top-item">
+                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                        <partial name="_LoginPartial"/>
+                    </ul>
+                </nav>
+            </section>
+        </div>
+    </div>
+    <!--end header top -->
+
+    <!-- header bottom -->
+    <div class="header__bottom">
+        <div class="container">
+            <section class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12 header__logo">
+                    <h1 class="header__heading">
+                        <a href="#" class="header__logo-link">
+                            <img src="/images/fpt-logo-5B8F17203A-seeklogo.com.png" alt="Logo" style="max-width: 28%" class="header__logo-img">
+                        </a>
+                    </h1>
+                </div>
+
+                <div class="col-lg-6 col-md-7 col-sm-0 header__search">
+                    <select name="" id="" class="header__search-select">
+                        <option value="0">All</option>
+                        <option value="1">Sách tiếng việt</option>
+                        <option value="2">Sách sách nước ngoài</option>
+                        <option value="3">Manga-Comic</option>
+
+                    </select>
+                    <input type="text" class="header__search-input" placeholder="Tìm kiếm tại đây...">
+                    <button class="header__search-btn">
+                        <div class="header__search-icon-wrap">
+                            <i class="fas fa-search header__search-icon"></i>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="col-lg-2 col-md-0 col-sm-0 header__call">
+                    <div class="header__call-icon-wrap">
+                        <i class="fas fa-phone-alt header__call-icon"></i>
+                    </div>
+                    <div class="header__call-info">
+                        <div class="header__call-text">
+                            consulting service
+                        </div>
+                        <div class="header__call-number">
+                            0869.502.969
+                        </div>
+                    </div>
+                </div>
+
+                @if (User.IsInRole(("Customer")))
+                {
+                    var countBook = HttpContextAccessor.HttpContext.Session.GetInt32(Session.ssShoppingCart) ?? 0;
+                    <a asp-area="Authenticated" asp-controller="Carts" asp-action="Index" class="col-lg-1 col-md-1 col-sm-0 header__cart">
+                        <div class="header__cart-icon-wrap">
+                            <span class="header__notice">@countBook</span>
+                            <i class="fas fa-shopping-cart header__nav-cart-icon"></i>
+                        </div>
+                    </a>
+                }
+            </section>
+        </div>
+    </div>
+    <!--end header bottom -->
+
+    <!-- header nav -->
+    <div class="header__nav">
+        <div class="container">
+            <section class="row">
+                <div class="header__nav-menu-wrap col-lg-3 col-md-0 col-sm-0">
+                    <i class="fas fa-bars header__nav-menu-icon"></i>
+                    <div class="header__nav-menu-title">Book Category</div>
+                </div>
+
+                <div class="header__nav col-lg-9 col-md-0 col-sm-0">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Category</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Products</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Contact</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Users" asp-action="Categories">Admin Approved</a>
+                        </li>
+                        <li class="header__nav-item">
+                            <a class="header__nav-link" asp-area="Authenticated" asp-controller="Books" asp-action="Create">Books</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</header>
+<!--end header nav -->
+
+@* main *@
+@RenderBody()
+
+
+
 </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-         crossorigin="anonymous"></script>
-       <script
-         src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-         crossorigin="anonymous"
-       ></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/86e73494e1.js" crossorigin="anonymous"></script>
- <script src="~/js/jq.js"></script>
+<script src="~/js/jq.js"></script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

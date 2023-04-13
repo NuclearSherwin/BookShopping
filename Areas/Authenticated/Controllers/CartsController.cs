@@ -19,7 +19,6 @@ public class CartsController : Microsoft.AspNetCore.Mvc.Controller
     public CartsController(ApplicationDbContext db)
     {
         _db = db;
-
     }
 
     [BindProperty] public ShoppingCartVM ShoppingCart { get; set; }
@@ -36,7 +35,8 @@ public class CartsController : Microsoft.AspNetCore.Mvc.Controller
             ListCart = _db.Carts.Where(u => u.UserId == claim.Value).Include(p => p.Book.Category)
         };
         ShoppingCart.Orders.Total = 0;
-        ShoppingCart.Orders.User = _db.Users.FirstOrDefault(u => u.Id == claim.Value);
+        ShoppingCart.Orders.User = _db.Users
+            .FirstOrDefault(u => u.Id == claim.Value);
 
         foreach (var list in ShoppingCart.ListCart)
         {
