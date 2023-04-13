@@ -58,6 +58,7 @@ public class DbInitializer : IDbInitializer
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
                 FullName = "Admin",
+                PhoneNum = "0869502968",
                 Address = "Admin123",
                 EmailConfirmed = true,
             }, "Admin123@").GetAwaiter().GetResult();

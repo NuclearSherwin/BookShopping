@@ -10580,19 +10580,19 @@
     ]
   },
   "packageFolders": {
-    "/home/khanh/.nuget/packages/": {}
+    "C:\\Users\\paika\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
+      "projectUniqueName": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
       "projectName": "BookShopping",
-      "projectPath": "/home/khanh/RiderProjects/BookShopping/BookShopping.csproj",
-      "packagesPath": "/home/khanh/.nuget/packages/",
-      "outputPath": "/home/khanh/RiderProjects/BookShopping/obj/",
+      "projectPath": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
+      "packagesPath": "C:\\Users\\paika\\.nuget\\packages\\",
+      "outputPath": "A:\\work\\real-projects\\BookShopping\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/khanh/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\paika\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -10676,7 +10676,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,6 +1,6 @@
 ﻿namespace BookShopping.Constants;
 
-public class Session
+public static class Session
 {
     public const string ssShoppingCart = "Shopping Cart Session";
 }

@@ -106,6 +106,11 @@ namespace BookShopping.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
             
+            // phone number
+            [Required]
+            [Display(Name = "Your Phone number")]
+            public string PhoneNum { get; set; }
+            
             [Required]
             [Display(Name = "Your Address")]
             public string Address { get; set; }
@@ -137,6 +142,7 @@ namespace BookShopping.Areas.Identity.Pages.Account
                     Email = Input.Email,
                     EmailConfirmed = true,
                     FullName = Input.FullName,
+                    PhoneNum = Input.PhoneNum,
                     Address = Input.Address
                 };
 

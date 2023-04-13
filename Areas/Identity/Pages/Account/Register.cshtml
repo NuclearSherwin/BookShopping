@@ -24,10 +24,14 @@
                                 
                                 <input asp-for="Input.ConfirmPassword" aria-required="true" type="password" placeholder="CONFIRM PASSWORD">
                                 <span id="rePass-validation" asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-                                
+
+                                <input asp-for="Input.PhoneNum" aria-required="true" type="text" placeholder="PHONE NUMBER">
+                                <span id="address-validation" asp-validation-for="Input.PhoneNum" class="text-danger"></span>
+
                                 <input asp-for="Input.Address" aria-required="true" type="text" placeholder="ADDRESS">
                                 <span id="address-validation" asp-validation-for="Input.Address" class="text-danger"></span>
                                 
+
                                 <div>
                                     <label id="role-label" >Role</label>
                                     @Html.DropDownListFor(n => n.Input.Role, Model.Input.RoleList,

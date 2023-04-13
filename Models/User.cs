@@ -14,6 +14,9 @@ public class User : IdentityUser
     [Required] public string FullName { get; set; }
     [Required] public string Address { get; set; }
     [NotMapped] public string Role { get; set; }
+    
+    [Required]
+    public string PhoneNum { get; set; }
 
 
     public DateTime CreatedAt { get; set; }
