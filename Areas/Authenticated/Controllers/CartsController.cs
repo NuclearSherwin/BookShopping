@@ -6,6 +6,7 @@ using BookShopping.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NToastNotify;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
@@ -14,10 +15,12 @@ namespace BookShopping.Areas.Authenticated.Controllers;
 public class CartsController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;
+    private readonly IToastNotification _toastNotification;
 
 
-    public CartsController(ApplicationDbContext db)
+    public CartsController(ApplicationDbContext db, IToastNotification toastNotification)
     {
+        _toastNotification = toastNotification;
         _db = db;
     }
 
@@ -185,6 +188,8 @@ public class CartsController : Microsoft.AspNetCore.Mvc.Controller
         _db.Carts.RemoveRange(ShoppingCart.ListCart);
         _db.SaveChanges();
         HttpContext.Session.SetInt32(Constants.Session.ssShoppingCart, 0);
+        
+        _toastNotification.AddSuccessToastMessage("Order successfully");
 
         return RedirectToAction("OrderConfirmation", "Carts",
             new { id = ShoppingCart.Orders.Id });

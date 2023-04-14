@@ -1113,3 +1113,10 @@ A:\work\real-projects\BookShopping\obj\Debug\net6.0\refint\BookShopping.dll
 A:\work\real-projects\BookShopping\obj\Debug\net6.0\BookShopping.pdb
 A:\work\real-projects\BookShopping\obj\Debug\net6.0\BookShopping.genruntimeconfig.cache
 A:\work\real-projects\BookShopping\obj\Debug\net6.0\ref\BookShopping.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\NToastNotify.Views.dll
+A:\work\real-projects\BookShopping\bin\Debug\net6.0\NToastNotify.dll

@@ -137,11 +137,35 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public async Task<IActionResult> ApproveCategory(Category category)
     {
+        if (!ModelState.IsValid)
+        {
+            return View(category);
+        }
+        
         // change to status to approve
         var approvedTheCategory =  Category.StatusEnum.Approved;
         category.Status = approvedTheCategory;
         _db.Categories.Update(category);
         await _db.SaveChangesAsync();
+        
+        return RedirectToAction(nameof(Categories));
+    }
+    
+    [HttpGet]
+    public IActionResult RejectCategory(int categoryId)
+    {
+        var category = _db.Categories.Find(categoryId);
+        if (category == null)
+        {
+            return NotFound();
+        }
+
+        category.Status = Category.StatusEnum.Rejected;
+        
+        _db.Categories.Remove(category);
+        _db.SaveChanges();
+        
+        
         return RedirectToAction(nameof(Categories));
     }
     
@@ -156,24 +180,27 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public IActionResult EditOwnProfile(User user)
     {
-        if (ModelState.IsValid)
+        var ownUser = _db.Users.Find(user.Id);
+        if (ownUser == null)
         {
-            var ownUser = _db.Users.Find(user.Id);
-            if (ownUser == null)
-            {
-                return NotFound();
-            }
-            ownUser.FullName = user.FullName;
-            _db.Users.Update(ownUser);
-
-            _db.SaveChanges();
-
-            return RedirectToAction(nameof(Index));
+            return NotFound();
         }
+        
+        
+        ownUser.FullName = user.FullName;
+        ownUser.Address = user.Address;
+        ownUser.PhoneNum = user.PhoneNum;
+        ownUser.UpdatedAt = DateTime.Now;
+        
+        _db.Users.Update(ownUser);
 
-        return View(user);
+        _db.SaveChanges();
+
+        return RedirectToAction(nameof(Index));
     }
+    
 
+    [HttpGet]
     public async Task<IActionResult> Edit(string id)
     {
         var user = _db.Users.Find(id);
@@ -181,8 +208,9 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
         var role = roleTemp.First();
 
         return RedirectToAction("EditOwnProfile", new { id });
-
-
+        
     }
+    
+
 
 }

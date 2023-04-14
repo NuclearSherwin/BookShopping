@@ -2,53 +2,106 @@
 
 @{
     Layout = "_Layout";
+    ViewData["Title"] = "Books";
 }
+
+<partial name="_StatusMessenger" model="@ViewData["Message"]"/>
 <div class="container">
-    <h2>Books</h2>
-    <a type="button" class="btn btn-primary"asp-controller="Books"asp-action="Create">Create</a>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Price</th>
-            <th scope="col">Author</th>
-    
-            <th scope="col">NoPage </th>
-            <th scope="col">ImgPath</th>
-            <th scope="col">Category Name</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var book in Model)
-        {
-            <tr>
-                <th scope="row">@book.Id</th>
-                <th>@book.Name</th>
-                <th>@book.Description</th>
-                <th>@book.Price</th>
-                <th>@book.Author</th>
-                <th>@book.NoPage</th>
-                <th><img src="@Url.Action("GetImage", "Books", new {id = book.FileId})" alt="image" style="width: 30px" /></th>
-                <th>@book.Category.Name</th>
-                    
-                <td>
-                    <a type = "button" class="btn btn-danger" 
-                       onclick="return confirm('Do you fucking wanna delete this?')"
-                       asp-controller="Books" 
-                       asp-action="Delete" 
-                       asp-route-bookId="@book.Id">Delete</a>
-                    <a type="button" class="btn btn-success" 
-                       asp-controller="Books" 
-                       asp-action="Update" 
-                       asp-route-bookId="@book.Id">Update</a>
-                </td>
-                    
-            </tr>
-        }
-        </tbody>
-    </table>
-    <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
+  <h2>Books</h2>
+  <div class="d-flex">
+    <a class="btn btn-success m-3" asp-area="Authenticated" asp-controller="Books" asp-action="Create">
+      Create new Book
+      <i class="fa-solid fa-plus"></i>
+    </a>
+    <a class="btn btn-primary m-3" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">
+      Return to home
+      <i class="fa-solid fa-house"></i>
+    </a>
+    @* <form class="form-inline float-right ml-2"> *@
+    @*   <input id="myInput" class="form-control mr-sm-2" *@
+    @*          type="text" placeholder="Search"> *@
+    @*   <i class="fa-solid fa-magnifying-glass"></i> *@
+    @* </form> *@
+  </div>
+  <section class="intro">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                      <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Author</th>
+                        <th scope="col">NoPage</th>
+                        <th scope="col">Picture</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                      </thead>
+                      <tbody id="tblData">
+                      @foreach (var book in Model)
+                      {
+                        <tr>
+                          <td>@book.Name</td>
+                          <td>@book.Description</td>
+                          <td>@book.Price</td>
+                          <td>@book.Author</td>
+                          <td>@book.NoPage</td>
+                          <td>
+                            <img src="@Url.Action("GetImage", "Books", new {id = book.FileId})" alt="image" style="width: 100px" />
+                          </td>
+                          <td>
+                            @book.Category.Name
+                          </td>
+                          <td>
+                            <a type = "button" class="btn btn-danger" 
+                               onclick="return confirm('Do you fucking wanna delete this?')"
+                               asp-controller="Books" 
+                               asp-action="Delete" 
+                               asp-route-bookId="@book.Id">Delete
+                            </a>
+                               
+                            <a type="button" class="btn btn-primary" 
+                               asp-controller="Books" 
+                               asp-action="Update" 
+                               asp-route-id="@book.Id">Update</a>
+                          </td>
+                        </tr>
+                      }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                
+                $("#tblData tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}
+
+
+

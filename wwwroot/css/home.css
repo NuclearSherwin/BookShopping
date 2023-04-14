@@ -42,11 +42,8 @@
 }
 
 .menu__link {
-    font-size: 1.5rem;
     font-weight: 500;
     color: var(--text-color);
-    color: black;
-    display: block;
     padding: 1rem 2.8rem;
     text-decoration: none;
     border-top: 1px solid #eff0f3;
@@ -134,7 +131,7 @@
 .bestselling__heading {
     font-size: 2.4rem;
     font-weight: 500;
-    color: var(--primary-color);
+    color: #4aa84a;
     position: relative;
 }
 
@@ -460,7 +457,7 @@
     text-decoration: none;
     font-weight: 400;
     display: block;
-    margin-top: 3.5rem;
+    margin-top: 1rem;
     transition: 0.2s;
     height: 3.8rem;
     display: -webkit-box;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vJ/ob1xZUZJd59kvnbE/ea9b+z2BLsNmQx6q01ArPxc=",
+  "Hash": "RagCRKS7TFdsfZ8c38Bez2BN2TSq5b6w+SRJzMpE9LQ=",
   "Source": "BookShopping",
   "BasePath": "_content/BookShopping",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
     },
     {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\css\\cart.css",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "css/cart.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\cart.css"
+    },
+    {
       "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\css\\contact.css",
       "SourceId": "BookShopping",
       "SourceType": "Discovered",
@@ -117,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\login.css"
+    },
+    {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\css\\order.css",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "css/order.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\order.css"
     },
     {
       "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\css\\post.css",
@@ -202,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
+    },
+    {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\css\\table.css",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "css/table.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\table.css"
     },
     {
       "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\favicon.ico",
@@ -1292,6 +1343,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Identity": "A:\\work\\real-projects\\BookShopping\\wwwroot\\videos\\X2Download.com-Bookstore coffeeshop promo video-(720p60).mp4",
+      "SourceId": "BookShopping",
+      "SourceType": "Discovered",
+      "ContentRoot": "A:\\work\\real-projects\\BookShopping\\wwwroot\\",
+      "BasePath": "_content/BookShopping",
+      "RelativePath": "videos/X2Download.com-Bookstore coffeeshop promo video-(720p60).mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\videos\\X2Download.com-Bookstore coffeeshop promo video-(720p60).mp4"
+    },
+    {
       "Identity": "C:\\Users\\paika\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.15\\staticwebassets\\V5\\css\\site.css",
       "SourceId": "Microsoft.AspNetCore.Identity.UI",
       "SourceType": "Package",
@@ -2310,6 +2378,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\paika\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.15\\staticwebassets\\V5\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\noty.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "noty.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\noty.js"
+    },
+    {
+      "Identity": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\toastr.js",
+      "SourceId": "NToastNotify",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\",
+      "BasePath": "_content/NToastNotify",
+      "RelativePath": "toastr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\paika\\.nuget\\packages\\ntoastnotify\\6.0.1\\staticwebassets\\toastr.js"
     }
   ]
 }

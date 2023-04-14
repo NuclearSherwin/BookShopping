@@ -13,9 +13,10 @@
     font-size: 10px;
 }
 
+
 body {
     font-size: 100%;
-    font-family: Roboto;
+    font-family: Roboto, serif;
 }
 /* header */
 #header {
@@ -291,18 +292,26 @@ body {
 /* end header */
 
 /*footer*/
+footer {
+    color: #bdbdbd;
+}
 .footer__top {
-    background: #efefef;
+    color: #bdbdbd;
+    background: #004040;
     padding: 1.6rem 0;
 }
 .footer__top-intro {
 }
 
+.footer__top-policy {
+    color: #bdbdbd;
+}
+
 .footer__top-intro-heading,
 .footer__top-policy-heading,
 .footer__top-contact-heading {
+    color: #bdbdbd;
     font-size: 1.7rem;
-    color: var(--text-color);
     padding: 1.2rem 0;
 }
 
@@ -316,11 +325,12 @@ body {
 }
 
 .footer__top-policy-item {
+    color: #bdbdbd;
 }
 
 .footer__top-policy-link {
     font-size: 1.5rem;
-    color: var(--text-color);
+    color: #bdbdbd;
 }
 
 .footer__top-policy-link:hover {
@@ -349,18 +359,19 @@ body {
 }
 
 .footer__top-contact-phone-wrap {
+    color: #bdbdbd;
 }
 
 .footer__top-contact-phone {
     font-size: 1.5rem;
     font-weight: 500;
-    color: var(--black-color);
+    color: #bdbdbd;
     margin-bottom: 1rem;
 }
 
 .footer__top-contact-des {
     font-size: 1.3rem;
-    color: var(--text-color);
+    color: #bdbdbd;
 }
 
 .footer__top-contact-social-link {

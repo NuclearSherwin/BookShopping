@@ -1,51 +1,56 @@
-﻿@model IList<BookShopping.Models.Order>
+﻿@using System.ComponentModel
+@model IList<BookShopping.Models.Order>
 
 @{
     ViewBag.Title = "Order list";
     Layout = "_Layout";
 }
 
-<h2>Order list</h2>
+<h2 class="text-center">Order list</h2>
+
 @if (Model.Any())
 {
-    @* <partial name="_StatusMessenger" model="@ViewData["Message"]"/> *@
+  <div class="container fs-3">
+  <h2 class="">Orders</h2>
 
-    <div class="card shadow mb-4">
-        @* <partial name="_StatusMessenger" model="@ViewData["Message"]"/> *@
-        <div class="card-body text-dark" style="background-color: #d3d4d4">
-            <div class="table-responsive font-weight-bold">
-                <table class="table table-bordered" id="dataTable">
+  <div class="d-flex">
+    <a class="btn btn-primary m-3" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">
+      Return to home
+      <i class="fa-solid fa-house"></i>
+    </a>
+    
+    @* <form class="form-inline float-right ml-2"> *@
+    @*   <input id="myInput" class="form-control mr-sm-2" *@
+    @*          type="text" placeholder="Search"> *@
+    @*   <i class="fa-solid fa-magnifying-glass"></i> *@
+    @* </form> *@
+  </div>
+  
 
-                    <thead>
-                    <tr>
-                        <th>Oder Id</th>
-                        <th>Customer Name</th>
-                        <th>Customer Adress</th>
-                        <th>Customer Email</th>
-                        <th>Order Date</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-
-                    @if (Model.Count > 10)
-                    {
-                        <tfoot>
-                        <tr>
-                            <th>Oder Id</th>
-                            <th>Customer Name</th>
-                            <th>Customer Adress</th>
-                            <th>Customer Email</th>
-                            <th>Order Date</th>
-                            <th>Total</th>
-                            <th>Action</th>
-                        </tr>
-                        </tfoot>
-                    }
-
-                    <tbody>
-                    @foreach (var order in @Model)
-                    {
+  <section class="intro">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                      <tr>
+                          <th>Oder Id</th>
+                          <th>Customer Name</th>
+                          <th>Customer Adress</th>
+                          <th>Customer Email</th>
+                          <th>Order Date</th>
+                          <th>Total</th>
+                          <th>Action</th>
+                      </tr>
+                      </thead>
+                      @foreach (var order in @Model)
+                      {
+                        <tbody id="tblData">
                         <tr>
                             <td>@order.Id</td>
                             <td>@order.User.FullName</td>
@@ -59,12 +64,19 @@
                                    class="btn btn-info">View Detail</a>
                             </td>
                         </tr>
-                    }
-                    </tbody>
-                </table>
+                        </tbody>
+                      }
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
+</div>
 }
 else
 {

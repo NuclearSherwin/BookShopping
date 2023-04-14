@@ -1,4 +1,8 @@
 @model BookShopping.ViewModels.ShoppingCartVM
+
+@{
+    ViewData["Title"] = "Cart";
+}
 <form method="post">
     <br/>
     @if (Model.ListCart.Any())
@@ -20,6 +24,7 @@
                         {
                             <div class="row">
                                 <div class="d-none d-lg-block col-lg-1 text-center py-2">
+                                    <img src="/Authenticated/Books/GetImage/@item.Book.FileId" alt="@item.Book.Name"/>
                                 </div>
                                 <div class="col-12 text-sm-center col-lg-6 text-lg-left">
                                     <div class="d-flex">
@@ -37,7 +42,7 @@
                                 <div class="col-12 text-sm-center col-lg-5 text-lg-right row">
                                     <div class="col-4 text-md-right" style="padding-top:5px;">
                                         <h6>
-                                            <strong>đ @item.Book.Price<span class="text-muted">x</span> @item.Count </strong>
+                                            <strong>$ @item.Book.Price<span class="text-muted">x</span> @item.Count </strong>
                                         </h6>
                                     </div>
                                     <div class="col-6 col-sm-4 col-lg-6">
@@ -47,8 +52,8 @@
                                             </a>
                                         </div>
                                         <div class="float-right mx-1">
-                                            <a asp-action="minus" asp-route-cartId="@item.Id" class="btn btn-danger">
-                                                <i class="fas fa-minus"></i>
+                                            <a asp-action="minus"  asp-route-cartId="@item.Id" class="btn btn-danger text-white">
+                                                <i class="fa-solid fa-trash"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -89,6 +94,7 @@
         <div> There is no item in shopping cart </div>
     }
 </form>
+
 
 @section Scripts{
     <script>

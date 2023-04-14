@@ -4,48 +4,75 @@
     ViewBag.Title = "Order Detail";
     Layout = "_Layout";
 }
+<div class="container fs-3">
+  <h2 class="text-center">Order Detail</h2>
 
-<h2>Order Detail</h2>
+  <div class="d-flex">
+    <a class="btn btn-primary m-3" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">
+      Return to home
+      <i class="fa-solid fa-house"></i>
+    </a>
+    <a class="btn btn-primary m-3" asp-area="Authenticated" asp-controller="Managements" asp-action="Index">
+      Return to orders
+      <i class="fa-solid fa-bags-shopping"></i>
+    </a>
+    @* <form class="form-inline float-right ml-2"> *@
+    @*   <input id="myInput" class="form-control mr-sm-2" *@
+    @*          type="text" placeholder="Search"> *@
+    @*   <i class="fa-solid fa-magnifying-glass"></i> *@
+    @* </form> *@
+  </div>
+  
 
-<div class="card shadow mb-4">
-    @* <partial name="_StatusMessenger" model="@ViewData["Message"]"/> *@
-    <div class="card-body text-dark" style="background-color: #d3d4d4">
-        <div class="table-responsive font-weight-bold">
-            <table class="table table-bordered" id="dataTable">
-
-                <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Product Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                
-                <tbody>
-                @{
-                    double sum = 0;
-                }
-
-                @foreach (var order in @Model)
-                {
-                    <tr>
-                        <td class="text-center">
-                            <img src="/Authenticated/Books/GetImage/@order.Book.FileId" class="card-img-top rounded" style="width: 50%" alt=""/>
-                        </td>
-                        <td>@order.Book.Name</td>
-                        <td>@order.Book.Price</td>
-                        <td>@order.Quantity</td>
-                        @{
-                            var total = @order.Book.Price * @order.Quantity;
-                            sum += total;
-                        }
-                        <td>@total</td>
-                    </tr>
-                }
-                </tbody>
-            </table>
+  <section class="intro">
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body p-0">
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    <table class="table table-striped mb-0">
+                      <thead style="background-color: #002d72;">
+                      <tr>
+                          <th>Image</th>
+                          <th>Product Name</th>
+                          <th>Price</th>
+                          <th>Quantity</th>
+                          <th>Total</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      @{
+                          double sum = 0;
+                      }
+                      
+                      @foreach (var order in @Model)
+                      {
+                          <tr>
+                              <td class="text-center">
+                                  <img src="/Authenticated/Books/GetImage/@order.Book.FileId" class="card-img-top rounded" style="width: 50%" alt=""/>
+                              </td>
+                              <td>@order.Book.Name</td>
+                              <td>@order.Book.Price</td>
+                              <td>@order.Quantity</td>
+                              @{
+                                  var total = @order.Book.Price * @order.Quantity;
+                                  sum += total;
+                              }
+                              <td>@total</td>
+                          </tr>
+                      }
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 </div>

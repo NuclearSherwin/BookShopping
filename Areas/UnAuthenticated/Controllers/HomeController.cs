@@ -5,6 +5,7 @@ using BookShopping.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NToastNotify;
 
 namespace BookShopping.Areas.UnAuthenticated.Controllers
 {
@@ -14,11 +15,13 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _db;
         private readonly int _recordPerPage = 40;
+        private readonly IToastNotification _toastNotification;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db, IToastNotification toastNotification)
         {
             _logger = logger;
             _db = db;
+            _toastNotification = toastNotification;
         }
 
         public IActionResult Index(int id, string searchString = "")
@@ -38,7 +41,29 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
             ViewData["Current Filter"] = searchString;
 
             var bookList = books.Skip(id * numOfPages).Take(_recordPerPage).ToList();
-            ViewData["Message"] = "Welcome!";
+            
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            
+            // get the role of current signed in
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, "1234"),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
+            var identity = new ClaimsIdentity(claims, "MyAuthType");
+
+            var roleClaim = claimsIdentity.FindFirst(ClaimTypes.Role);
+            if (roleClaim == null)
+            {
+                return View(bookList);
+            }
+            
+            string role = roleClaim.Value;
+            
+            
+            _toastNotification.AddInfoToastMessage("Welcome " + role + " To Book store!^^");
+
             
             return View(bookList);
         }
@@ -74,7 +99,6 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
         // add product to cart
         [HttpPost]
         [AutoValidateAntiforgeryToken]
-        [Authorize]
         public IActionResult Detail(Cart cartObj)
         {
             cartObj.Id = 0;
@@ -122,8 +146,15 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
             
             
             HttpContext.Session.SetInt32(Constants.Session.ssShoppingCart, count);
+            
+            _toastNotification.AddSuccessToastMessage("Add to cart successfully.");
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Helper()
+        {
+            return View();
         }
     }
 }

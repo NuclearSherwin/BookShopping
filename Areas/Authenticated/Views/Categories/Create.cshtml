@@ -1,26 +1,34 @@
 ﻿@model BookShopping.Models.Category
 
 @{
+    ViewData["Title"] = "Category Create";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
-<br>
-
-    <form asp-action="Create" method="post">
-        <div class="form-group">
-            <label asp-for="Name"></label>
-            <input asp-for="Name" type="text" class="form-control" id="exampleInputCategory" placeholder="Type">
+<h2 class="text-center">Category create</h2>
+<div class="container">
+    <a class="btn btn-primary m-3" asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">
+        Return to home
+        <i class="fa-solid fa-house"></i>
+    </a>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1>Create Category</h1>
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" asp-for="Name" class="form-control"  placeholder="Enter category name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea class="form-control" asp-for="Description" rows="3" placeholder="Enter category description"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
         </div>
-        <div class="form-group">
-            <label asp-for="Description"></label>
-            <input asp-for="Description" type="text" class="form-control" id="exampleInputCategory" placeholder="Description">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <div>
-        <a asp-area="Authenticated" asp-controller="Categories" asp-action="Index">Return to Categories</a>
-        <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
     </div>
-</br>
+</div>
+
 

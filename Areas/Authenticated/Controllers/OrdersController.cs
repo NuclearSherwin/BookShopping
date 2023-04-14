@@ -1,10 +1,12 @@
 using BookShopping.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
 [Area(Constants.Areas.AuthenticatedArea)]
+[Authorize(Roles = Constants.Roles.StoreOwnerRole)]
 public class OrdersController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _context;

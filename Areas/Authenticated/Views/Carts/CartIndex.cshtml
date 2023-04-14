@@ -1,4 +1,9 @@
 @model BookShopping.ViewModels.ShoppingCartVM
+
+@{
+    ViewData["Title"] = "Cart";
+}
+
 <form method="post">
     <br/>
     @if (Model.ListCart.Any())
@@ -89,6 +94,24 @@
         <div> There is no item in shopping cart </div>
     }
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section Scripts{
     <script>

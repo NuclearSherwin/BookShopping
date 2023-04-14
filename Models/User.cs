@@ -10,12 +10,21 @@ public class User : IdentityUser
     {
         CreatedAt = DateTime.Now;
     }
-
-    [Required] public string FullName { get; set; }
-    [Required] public string Address { get; set; }
+    
+    [Required(ErrorMessage = "Full Name is required")]
+    [StringLength(50, ErrorMessage = "Full Name should be less than 50 characters")]
+    public string FullName { get; set; }
+    
+    
+    [Required(ErrorMessage = "Address is required")]
+    public string Address { get; set; }
+    
+    
     [NotMapped] public string Role { get; set; }
     
-    [Required]
+    
+    [Required(ErrorMessage = "Phone Number is required")]
+    [Phone(ErrorMessage = "Invalid Phone Number")]
     public string PhoneNum { get; set; }
 
 

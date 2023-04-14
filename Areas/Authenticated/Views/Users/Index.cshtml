@@ -1,115 +1,109 @@
 ﻿@model IEnumerable<BookShopping.Models.User>
 
 @{
+    ViewData["Title"] = "Users";
     Layout = "_Layout";
 }
 
 @if (Model.Any())
 {
-    <div class="row">
-        <div class="col-6">
-            <h1>User Table</h1>
-            <div>
-                <a asp-area="UnAuthenticated" asp-controller="Home" asp-action="Index">Return to home</a>
+    <div class="container">
+        <h2 class="text-center m-4">Users management</h2>
+        <section class="intro">
+            <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                <div class="mask d-flex align-items-center h-100">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                            <table class="table table-striped mb-0">
+                                                <thead style="background-color: #002d72;">
+                                                <tr>
+                                                    <th scope="col">Full Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Role</th>
+                                                    <th scope="col">Address</th>
+                                                    <th scope="col">Create at</th>
+                                                    <th scope="col">Create by</th>
+                                                    <th scope="col">Update at</th>
+                                                    <th scope="col">Update by</th>
+                                                    <th scope="col">Is delete</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="tblData">
+                                                @{
+                                                    var i = 1;
+                                                }
+                                                @foreach (var obj in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@obj.FullName</td>
+                                                        <td>@obj.Email</td>
+                                                        <td>@obj.Role</td>
+                                                        <td>@obj.Address</td>
+                                                        <td>@obj.CreatedAt</td>
+                                                        <td>@obj.CreatedBy</td>
+                                                        <td>@obj.UpdatedAt</td>
+                                                        <td>@obj.UpdatedBy</td>
+                                                        <td>@obj.IsDelete</td>
+                                                        <td>
+                                                            <a asp-controller="Users" asp-action="Edit" asp-route-id="@obj.Id"
+                                                               class="btn btn-sm btn-outline-info">
+                                                                <i class="fa-solid fa-pen"></i>
+                                                            </a>
+
+                                                            @if (obj.LockoutEnd < DateTime.Now || obj.LockoutEnd == null)
+                                                            {
+                                                                <a asp-area="Authenticated" asp-controller="Users" asp-action="LockUnlock"
+                                                                   asp-route-id="@obj.Id" class="btn btn-sm btn-outline-warning">
+                                                                    <i class="fa-solid fa-lock"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a asp-area="Authenticated" asp-controller="Users" asp-action="LockUnlock"
+                                                                   asp-route-id="@obj.Id" class="btn btn-sm btn-outline-warning">
+                                                                    <i class="fa-solid fa-lock-open"></i>
+                                                                </a>
+                                                            }
+                                                            @if (User.IsInRole("Admin"))
+                                                            {
+                                                                <a asp-area="Authenticated" asp-controller="Users" asp-action="Delete"
+                                                                   onclick="return confirm('Do you want to delete')" asp-route-id="@obj.Id"
+                                                                   class="btn btn-sm btn-outline-danger">
+                                                                    <i class="fa-solid fa-trash"></i>
+                                                                </a>
+                                                            }
+                                                            else
+                                                            {
+                                                                @if (obj.Role == "Customer")
+                                                                {
+                                                                    <a asp-area="Authenticated" asp-controller="Users"
+                                                                       asp-action="Delete" onclick="return confirm('Do you want to delete')"
+                                                                       asp-route-id="@obj.Id" class="btn btn-sm btn-outline-danger">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </a>
+                                                                }
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        @* <div class="col-6 d-flex justify-content-end align-items-center"> *@
-        @*     <div class=""> *@
-        @*         <a class="btn btn-sm btn-outline-primary" asp-area="Identity" *@
-        @*            asp-page="/Account/Register"> *@
-        @*             Register *@
-        @*         </a> *@
-        @*     </div> *@
-        @* </div> *@
+        </section>
     </div>
-
-    <div class="mt-3 mb-3">
-        <form class="form-inline my-2 my-lg-0 float-right p-4 d-flex justify-content-center">
-            <span class="p-2">
-                <i class="bi bi-search"></i>
-            </span>
-            <input id="myInput" class="form-control mr-sm-2" type="text" placeholder="Search">
-        </form>
-    </div>
-
-    <table class="table table-striped">
-        <thead id="tbHead">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Role</th>
-            <th scope="col">Address</th>
-            <th scope="col">Create at</th>
-            <th scope="col">Create by</th>
-            <th scope="col">Update at</th>
-            <th scope="col">Update by</th>
-            <th scope="col">Is delete</th>
-            <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody id="tblData">
-        @{
-            var i = 1;
-        }
-        @foreach (var obj in Model)
-        {
-            <tr>
-                <th scope="row">@i</th>
-                <td>@obj.FullName</td>
-                <td>@obj.Email</td>
-                <td>@obj.Role</td>
-                <td>@obj.Address</td>
-                <td>@obj.CreatedAt</td>
-                <td>@obj.CreatedBy</td>
-                <td>@obj.UpdatedAt</td>
-                <td>@obj.UpdatedBy</td>
-                <td>@obj.IsDelete</td>
-                <td>
-                    <a asp-controller="Users" asp-action="Edit" asp-route-id="@obj.Id"
-                       class="btn btn-sm btn-outline-info">
-                        <i class="fa-solid fa-pen"></i>
-                    </a>
-
-                    @if (obj.LockoutEnd < DateTime.Now || obj.LockoutEnd == null)
-                    {
-                        <a asp-area="Authenticated" asp-controller="Users" asp-action="LockUnlock"
-                           asp-route-id="@obj.Id" class="btn btn-sm btn-outline-warning">
-                            <i class="fa-solid fa-lock"></i>
-                        </a>
-                    }
-                    else
-                    {
-                        <a asp-area="Authenticated" asp-controller="Users" asp-action="LockUnlock"
-                           asp-route-id="@obj.Id" class="btn btn-sm btn-outline-warning">
-                            <i class="fa-solid fa-lock-open"></i>
-                        </a>
-                    }
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <a asp-area="Authenticated" asp-controller="Users" asp-action="Delete"
-                           onclick="return confirm('Do you want to delete')" asp-route-id="@obj.Id"
-                           class="btn btn-sm btn-outline-danger">
-                            <i class="fa-solid fa-trash"></i>
-                        </a>
-                    }
-                    else
-                    {
-                        @if (obj.Role == "Customer")
-                        {
-                            <a asp-area="Authenticated" asp-controller="Users"
-                               asp-action="Delete" onclick="return confirm('Do you want to delete')"
-                               asp-route-id="@obj.Id" class="btn btn-sm btn-outline-danger">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                        }
-                    }
-                </td>
-            </tr>
-            i++;
-        }
-        </tbody>
-    </table>
 }
 else
 {
@@ -128,4 +122,4 @@ else
             });
         });
     </script>
-}````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+}`````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
