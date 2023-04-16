@@ -10,7 +10,7 @@ using NToastNotify;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 [Area(Constants.Areas.AuthenticatedArea)]
-[Authorize(Roles = Constants.Roles.CustomerRole)]
+[Authorize(Roles = Constants.Roles.CustomerRole + "," + Constants.Roles.StoreOwnerRole)]
 public class BooksController : Controller
 {
     private readonly ApplicationDbContext _db;
