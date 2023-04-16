@@ -8,7 +8,7 @@ using NToastNotify;
 namespace BookShopping.Areas.Authenticated.Controllers;
 
 [Area(Constants.Areas.AuthenticatedArea)]
-[Authorize(Roles = Constants.Roles.StoreOwnerRole)]
+[Authorize(Roles = Constants.Roles.StoreOwnerRole + "," + Constants.Roles.AdminRole)]
 public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ApplicationDbContext _db;

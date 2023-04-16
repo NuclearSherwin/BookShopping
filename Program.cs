@@ -43,6 +43,8 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -63,6 +65,17 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+
+// app.Use(async (context, next) =>
+// {
+//     if (!context.User.Identity.IsAuthenticated)
+//     {
+//         context.Response.Redirect("/Identity/Account/Login");
+//         return;
+//     }
+//
+//     await next();
+// });
 
 using (var scope = app.Services.CreateScope())
 {
