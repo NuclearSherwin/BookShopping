@@ -175,7 +175,7 @@ namespace BookShopping.Areas.Identity.Pages.Account
         {
             Input = new InputModel()
             {
-                RoleList = _roleManager.Roles.Where(x => x.Name != "Admin")
+                RoleList = _roleManager.Roles.Where(x => x.Name != "Admi    n")
                     .Select(x => x.Name).Select(x => new SelectListItem()
                     {
                         Text = x,

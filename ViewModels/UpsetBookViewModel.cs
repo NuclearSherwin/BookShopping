@@ -10,4 +10,5 @@ public class UpsetBookViewModel
     public List<SelectListItem> Categories { get; set; }
     
     public IFormFile File { get; set; }
+    public string OldFileName { get; set; }
 }

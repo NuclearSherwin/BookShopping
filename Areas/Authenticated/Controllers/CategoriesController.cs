@@ -32,8 +32,11 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public IActionResult Create(Category category)
     {
+        if (!ModelState.IsValid)
+            return View(category);
+        
         // By default, the status is set to false
-        var pendingCategory =  Category.StatusEnum.Pending;
+        var pendingCategory = Category.StatusEnum.Pending;
         category.Status = pendingCategory;
         _db.Categories.Add(category);
         _db.SaveChanges();
@@ -50,14 +53,18 @@ public class CategoriesController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public IActionResult Update(Category category)
     {
-
+        if (!ModelState.IsValid)
+            return View(category);
+        var pendingCategory = Category.StatusEnum.Pending;
+        category.Status = pendingCategory;
         _db.Categories.Update(category);
         _db.SaveChanges();
         return RedirectToAction(nameof(Index));
 
     }
 
-    public IActionResult Delete(int categoryId)
+    
+        public IActionResult Delete(int categoryId)
     {
         var category = _db.Categories.Find(categoryId);
         _db.Categories.Remove(category);

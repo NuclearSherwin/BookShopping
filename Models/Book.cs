@@ -29,7 +29,7 @@ public class Book
     [ForeignKey("FileId")] 
     public FileModel FileModel { get; set; }
     
-    [Required] 
+    [Required(ErrorMessage = "You Need To Select Category")] 
     public int CategoryId { get; set; }
     [ForeignKey("CategoryId")]
     public Category Category { get; set; }

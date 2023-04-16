@@ -136,6 +136,8 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     [HttpPost]
     public async Task<IActionResult> ApproveCategory(Category category)
     {
+        if (!ModelState.IsValid)
+            return View(category);
         // change to status to approve
         var approvedTheCategory =  Category.StatusEnum.Approved;
         category.Status = approvedTheCategory;
