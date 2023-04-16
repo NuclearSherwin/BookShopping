@@ -128,13 +128,47 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
 
             if (cartFromDb == null)
             {
-                _db.Add(cartObj);
+                var bookFromDb = _db.Books
+                    .Include(_ => _.Category)
+                    .FirstOrDefault(b => b.Id == cartObj.BookId);
+                
+                if (bookFromDb.Total < cartObj.Count)
+                {
+                    ViewData["Message"] = "Total of number books is not enough!";
+
+                    Cart cart = new Cart()
+                    {
+                        Book = bookFromDb,
+                        BookId = bookFromDb.Id
+                    };
+
+                    return View(cart);  
+                }
+
+                _db.Carts.Add(cartObj);
                 ViewData["Message"] = "Order successfully!";
             }
             else
             {
+                var bookFromDb = _db.Books
+                    .Include(_ => _.Category)
+                    .FirstOrDefault(b => b.Id == cartObj.BookId);
+                
                 cartFromDb.Count += cartFromDb.Count;
-                _db.Update(cartFromDb);
+                if (bookFromDb.Total < cartFromDb.Count)
+                {
+                    ViewData["Message"] = "Total of number books is not enough!";
+
+                    Cart cart = new Cart()
+                    {
+                        Book = bookFromDb,
+                        BookId = bookFromDb.Id
+                    };
+
+                    return View(cart);
+                }
+                
+                _db.Carts.Update(cartFromDb);
             }
 
             _db.SaveChanges();

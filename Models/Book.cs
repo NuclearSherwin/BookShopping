@@ -32,8 +32,9 @@ public class Book
     
     [ForeignKey("FileId")] 
     public FileModel FileModel { get; set; }
-    
-    
+
+    [Range(0, int.MaxValue, ErrorMessage = "Number of total must be greater than 0")]
+    public int Total { get; set; }
     
     [Required(ErrorMessage = "Category is required")]
     public int CategoryId { get; set; }

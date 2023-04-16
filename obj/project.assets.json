@@ -11938,24 +11938,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\paika\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
+      "projectUniqueName": "D:\\Appdev\\BookShopping\\BookShopping.csproj",
       "projectName": "BookShopping",
-      "projectPath": "A:\\work\\real-projects\\BookShopping\\BookShopping.csproj",
-      "packagesPath": "C:\\Users\\paika\\.nuget\\packages\\",
-      "outputPath": "A:\\work\\real-projects\\BookShopping\\obj\\",
+      "projectPath": "D:\\Appdev\\BookShopping\\BookShopping.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\Appdev\\BookShopping\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\paika\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

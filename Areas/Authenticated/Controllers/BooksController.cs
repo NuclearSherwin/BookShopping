@@ -10,7 +10,7 @@ using NToastNotify;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 [Area(Constants.Areas.AuthenticatedArea)]
-[Authorize(Roles = Constants.Roles.CustomerRole)]
+[Authorize(Roles = Constants.Roles.StoreOwnerRole + "," + Constants.Roles.CustomerRole)]
 public class BooksController : Controller
 {
     private readonly ApplicationDbContext _db;
@@ -22,12 +22,14 @@ public class BooksController : Controller
         _toastNotification = toastNotification;
     }
 
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public IActionResult Index()
     {
         var books = _db.Books.Include(_=>_.Category).Include(_=>_.FileModel).ToList();
         return View(books);
     }
     
+    [AllowAnonymous]
     public IActionResult GetImage(int id)
     {
         var image = _db.Files.Find(id);
@@ -36,6 +38,7 @@ public class BooksController : Controller
     }
     
     [HttpGet]
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public IActionResult Create()
     {
         var upsertVM = new UpsetBookViewModel()
@@ -53,7 +56,9 @@ public class BooksController : Controller
         };
         return View(upsertVM);
     }
+    
     [HttpPost]
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public async Task<IActionResult> Create(UpsetBookViewModel input)
     {
         if (!ModelState.IsValid)
@@ -93,6 +98,7 @@ public class BooksController : Controller
 
     
     [HttpGet]
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public async Task<IActionResult> Update(int id)
     {
         var book = await _db.Books.FindAsync(id);
@@ -105,6 +111,7 @@ public class BooksController : Controller
         var upsertVM = new UpsetBookViewModel()
         {
             Book = book,
+            OldFileName = book.FileId != 0 && book.FileId != null ? _db.Files.Find(book.FileId).Name : String.Empty,
             Categories = _db.Categories.ToList()
                 .Where(c => c.Status == Category.StatusEnum.Approved) // filter approved categories
                 .ToList()
@@ -120,6 +127,7 @@ public class BooksController : Controller
     }
 
     [HttpPost]
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public async Task<IActionResult> Update(int id, UpsetBookViewModel input)
     {
         if (id != input.Book.Id)
@@ -141,8 +149,9 @@ public class BooksController : Controller
         book.Price = input.Book.Price;
         book.CategoryId = input.Book.CategoryId;
         book.NoPage = input.Book.NoPage;
-
-
+        book.Total = input.Book.Total;
+        var isRemoveFile = false;
+        var oldFileId = book.FileId;
         if (input.File != null)
         {
             byte[] fileData;
@@ -158,23 +167,28 @@ public class BooksController : Controller
                 ContentType = input.File.ContentType,
                 Data = fileData
             };
-            _db.Files.Add(file);
+            await _db.Files.AddAsync(file);
             await _db.SaveChangesAsync();
             
             _toastNotification.AddSuccessToastMessage("book updated successfully!");
-
+    
             book.FileId = file.Id;
+            isRemoveFile = true;
         }
-        else
-        {
-            book.FileId = book.FileId;
-        }
-
         await _db.SaveChangesAsync();
+        
+        if (isRemoveFile && oldFileId != 0)
+        {
+            // remove old file
+            var oldFile = await _db.Files.FindAsync(oldFileId);
+            _db.Files.Remove(oldFile);
+            await _db.SaveChangesAsync();
+        }
+        
         return RedirectToAction(nameof(Index));
     }
 
-    
+    [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public IActionResult Delete(int bookId)
     {
         var book =_db.Books.Find(bookId);
@@ -186,8 +200,5 @@ public class BooksController : Controller
             
         return RedirectToAction(nameof(Index));
     }
-    
-    
-    
 }
     

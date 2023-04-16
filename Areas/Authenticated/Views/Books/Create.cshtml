@@ -13,13 +13,13 @@
         <i class="fa-solid fa-house"></i>
     </a>
     <a class="btn btn-primary m-3" asp-area="Authenticated" asp-controller="Books" asp-action="Index">
-            View all books
-            <i class="fa-solid fa-book"></i>
-        </a>
+        View all books
+        <i class="fa-solid fa-book"></i>
+    </a>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1>Create Category</h1>
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="myForm">
                 <div class="form-group">
                     <label asp-for="Book.Name"></label>
                     <input asp-for="Book.Name"  type="text" required="required" class="form-control" id="exampleInputPosition2" placeholder="Name">
@@ -48,19 +48,57 @@
                     <input asp-for="Book.NoPage" type="text" required="required"  class="form-control" id="exampleInputPosition2" placeholder="NoPage">
                     <span asp-validation-for="Book.NoPage"></span>
                 </div>
-            
                 <div class="form-group">
-                    <label>Image File</label>
-                    <input type="file" class="form-control-file" id="file" name="File" required="required">
-                    <span asp-validation-for="Book.FileId"></span>
+                    <label asp-for="Book.Total"></label>
+                    <input asp-for="Book.Total" type="text" required="required"  class="form-control" id="exampleInputPosition2" placeholder="NoPage">
+                    <span asp-validation-for="Book.Total"></span>
+                </div>
+                @* <div class="form-group"> *@
+                @*     <label>Image File</label> *@
+                @*     <input type="file" class="form-control-file" id="file" name="File" required="required"> *@
+                @*     <span asp-validation-for="Book.FileId"></span> *@
+                @* </div> *@
+                <div class="form-group">
+                    <label for="file-input">Choose a file: </label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="file" name="File">
+                            <label class="custom-file-label" for="file-input">Choose file</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label asp-for="Book.Category"></label>
-                   @Html.DropDownListFor(m => m.Book.CategoryId, Model.Categories, "--Select Category", new { @class = "form-control", @required = "required" })
-                   <span asp-validation-for="Book.Category"></span>
+                    @Html.DropDownListFor(m => m.Book.CategoryId, Model.Categories, "--Select Category", new { @class = "form-control", @required = "required" })
+                    <span asp-validation-for="Book.Category"></span>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+  // Update the label when a file is selected
+  $('#file').on('change', function() {
+    // Get the file name
+    var fileName = $(this).val().split('\\').pop();
+    // Replace the "Choose file" label with the selected file name
+    $(this).next('.custom-file-label').html(fileName);
+  });
+  
+  // validate file
+  const form = document.getElementById('myForm');
+      const fileInput = document.getElementById('file');
+  
+      form.addEventListener('submit', event => {
+          event.preventDefault();
+  
+          if (fileInput.files.length === 0) {
+              alert('Please select a file.');
+              return;
+          }
+          
+          form.submit();
+      });
+</script>

@@ -14,4 +14,6 @@ public class UpsetBookViewModel
     
     [Required]
     public IFormFile File { get; set; }
+
+    public string OldFileName { get; set; }
 }

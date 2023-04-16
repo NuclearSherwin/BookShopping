@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookShopping.Migrations
 {
-    public partial class CreateDB : Migration
+    public partial class initDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -227,6 +227,7 @@ namespace BookShopping.Migrations
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NoPage = table.Column<int>(type: "int", nullable: false),
                     FileId = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<int>(type: "int", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

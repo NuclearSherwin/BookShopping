@@ -14,9 +14,9 @@
         <i class="fa-solid fa-house"></i>
     </a>
     <a class="btn btn-primary m-3" asp-area="Authenticated" asp-controller="Books" asp-action="Index">
-            View all books
-            <i class="fa-solid fa-book"></i>
-        </a>
+        View all books
+        <i class="fa-solid fa-book"></i>
+    </a>
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <h1>Book update</h1>
@@ -50,11 +50,25 @@
                     <input asp-for="Book.NoPage" type="text" required="required" class="form-control" id="exampleInputPosition2" placeholder="NoPage">
                     <span asp-validation-for="Book.NoPage"></span>
                 </div>
+                 <div class="form-group">
+                                    <label asp-for="Book.Total"></label>
+                                    <input asp-for="Book.Total" type="text" required="required" class="form-control" id="exampleInputPosition2" placeholder="NoPage">
+                                    <span asp-validation-for="Book.Total"></span>
+                     </div>
 
+                @* <div class="form-group"> *@
+                @*     <label>Image File</label> *@
+                @*     <input type="file" class="form-control-file" id="file" name="File"> *@
+                @*     <span asp-validation-for="Book.FileId"></span> *@
+                @* </div> *@
                 <div class="form-group">
-                    <label>Image File</label>
-                    <input type="file" class="form-control-file" id="file" name="File">
-                    <span asp-validation-for="Book.FileId"></span>
+                    <label for="file-input">Choose a file: <span class="text-danger">Current file Name: @Model.OldFileName</span></label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="file" name="File">
+                            <label class="custom-file-label" for="file-input">Choose file</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label asp-for="Book.Category"></label>
@@ -66,3 +80,28 @@
         </div>
     </div>
 </div>
+
+
+<script>
+  // Update the label when a file is selected
+  $('#file').on('change', function() {
+    // Get the file name
+    var fileName = $(this).val().split('\\').pop();
+    // Replace the "Choose file" label with the selected file name
+    $(this).next('.custom-file-label').html(fileName);
+  });
+  
+  const form = document.getElementById('myForm');
+        const fileInput = document.getElementById('file');
+    
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+    
+            if (fileInput.files.length === 0) {
+                alert('Please select a file.');
+                return;
+            }
+            
+            form.submit();
+        });
+</script>

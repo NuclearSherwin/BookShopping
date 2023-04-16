@@ -61,7 +61,11 @@ public class CartsController : Microsoft.AspNetCore.Mvc.Controller
 
         cart.Count += 1;
         cart.Price = cart.Book.Price;
-        _db.SaveChanges();
+        if (cart.Book.Total >= cart.Count)
+        {
+            _db.SaveChanges();
+        }
+        
         return RedirectToAction(nameof(Index));
     }
 
@@ -182,6 +186,10 @@ public class CartsController : Microsoft.AspNetCore.Mvc.Controller
             // calculate total for order header and add to order detail
             ShoppingCart.Orders.Total += orderDetail.Quantity + orderDetail.Price;
             _db.OrderDetails.Add(orderDetail);
+            
+            var book = _db.Books.Find(item.BookId);
+            book.Total -= item.Count;
+            _db.Books.Update(book);
         }
 
         // remove that item from cart
