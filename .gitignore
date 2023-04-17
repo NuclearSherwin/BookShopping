@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# .NET Core
+bin/
+obj/
+
+appsettings.json
+
 # User-specific files
 *.rsuser
 *.suo
@@ -32,8 +38,20 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+# Visual Studio
+*.cache
+*.dll
+*.exe
+*.log
+*.vspscc
+*.vssscc
+/*.bak
+/*.userprefs
+*.psess
+*.vsp
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
