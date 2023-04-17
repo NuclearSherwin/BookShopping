@@ -29,7 +29,7 @@ public class BooksController : Controller
         return View(books);
     }
     
-    [AllowAnonymous]
+    [AllowAnonymous] // yeu cau su li ma khong can xem kiem tra role
     public IActionResult GetImage(int id)
     {
         var image = _db.Files.Find(id);
