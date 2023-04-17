@@ -95,6 +95,7 @@ namespace BookShopping.Areas.Identity.Pages.Account
             }
 
             var user = await _userManager.FindByEmailAsync(email);
+            
             if (user == null)
             {
                 // Don't reveal that the user does not exist
@@ -103,9 +104,10 @@ namespace BookShopping.Areas.Identity.Pages.Account
 
             Input = new InputModel
             {
-                Code = code,
+                Code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code)),
                 Email = email
             };
+            
     
             return Page();
         }
@@ -118,6 +120,8 @@ namespace BookShopping.Areas.Identity.Pages.Account
                 return Page();
             }
 
+            Console.WriteLine(Input.Code);
+            
             var user = await _userManager.FindByEmailAsync(Input.Email);
             if (user == null)
             {
