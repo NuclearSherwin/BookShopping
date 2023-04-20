@@ -97,6 +97,7 @@ namespace BookShopping.Areas.UnAuthenticated.Controllers
         }
         
         // add product to cart
+        [Authorize(Roles = Constants.Roles.CustomerRole)]
         [HttpPost]
         [AutoValidateAntiforgeryToken]
         public IActionResult Detail(Cart cartObj)
