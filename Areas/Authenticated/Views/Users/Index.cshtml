@@ -71,6 +71,14 @@
                                                             }
                                                             @if (User.IsInRole("Admin"))
                                                             {
+                                                                <a asp-area="Authenticated" asp-controller="Users" asp-action="ResetPassword"
+                                                                   class="btn btn-sm btn-outline-warning">
+                                                                    <i class="fa-solid fa-key"></i>
+                                                                </a>
+                                                            }
+                                                            
+                                                            @if (User.IsInRole("Admin"))
+                                                            {
                                                                 <a asp-area="Authenticated" asp-controller="Users" asp-action="Delete"
                                                                    onclick="return confirm('Do you want to delete')" asp-route-id="@obj.Id"
                                                                    class="btn btn-sm btn-outline-danger">

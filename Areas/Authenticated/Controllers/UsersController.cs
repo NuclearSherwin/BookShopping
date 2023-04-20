@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
+using NToastNotify;
 
 namespace BookShopping.Areas.Authenticated.Controllers;
 
@@ -17,15 +18,18 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     private readonly ApplicationDbContext _db;
     private readonly UserManager<IdentityUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly IToastNotification _toastNotification;
 
     public UsersController(ApplicationDbContext db, 
         UserManager<IdentityUser> userManager, 
-        RoleManager<IdentityRole> roleManager
+        RoleManager<IdentityRole> roleManager,
+        IToastNotification toastNotification
     )
     {
         _db = db;
         _userManager = userManager;
         _roleManager = roleManager;
+        _toastNotification = toastNotification;
     }
 
     [HttpGet]
@@ -87,16 +91,41 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> ResetPassword(string? token, string? email)
+    // public async Task<IActionResult> ResetPassword(string? token, string? email)
+    // {
+    //     if (token == null || email == null) ModelState.AddModelError("", "Invalid password reset token");
+    //
+    //     var resetPasswordViewModel = new ResetPasswordViewModel
+    //     {
+    //         Email = email,
+    //         Token = token
+    //     };
+    //
+    //     return View(resetPasswordViewModel);
+    // }
+    //
+    // [HttpPost]
+    // public async Task<IActionResult> ResetPassword(ResetPasswordViewModel resetPasswordViewModel)
+    // {
+    //     if (ModelState.IsValid)
+    //     {
+    //         var user = await _userManager.FindByEmailAsync(resetPasswordViewModel.Email);
+    //         if (user != null)
+    //         {
+    //             var result = await _userManager.ResetPasswordAsync(user, resetPasswordViewModel.Token,
+    //                 resetPasswordViewModel.Password);
+    //
+    //             if (result.Succeeded) return RedirectToAction(nameof(Index));
+    //         }
+    //     }
+    //     return View(resetPasswordViewModel);
+    // }
+
+    // Reset pass
+    [HttpGet]
+    public async Task<IActionResult> ResetPassword()
     {
-        if (token == null || email == null) ModelState.AddModelError("", "Invalid password reset token");
-
-        var resetPasswordViewModel = new ResetPasswordViewModel
-        {
-            Email = email,
-            Token = token
-        };
-
+        var resetPasswordViewModel = new ResetPasswordViewModel();
         return View(resetPasswordViewModel);
     }
 
@@ -105,18 +134,25 @@ public class UsersController : Microsoft.AspNetCore.Mvc.Controller
     {
         if (ModelState.IsValid)
         {
+            
             var user = await _userManager.FindByEmailAsync(resetPasswordViewModel.Email);
+            var userEmail = user.Email;
             if (user != null)
             {
-                var result = await _userManager.ResetPasswordAsync(user, resetPasswordViewModel.Token,
-                    resetPasswordViewModel.Password);
-
-                if (result.Succeeded) return RedirectToAction(nameof(Index));
+                // Set the password without a token
+                var removePasswordResult = await _userManager.RemovePasswordAsync(user);
+                if (removePasswordResult.Succeeded)
+                {
+                    var addPasswordResult = await _userManager.AddPasswordAsync(user, resetPasswordViewModel.Password);
+                    _toastNotification.AddSuccessToastMessage("Reset password for " + userEmail + "Successfully.");
+                    if (addPasswordResult.Succeeded) return RedirectToAction(nameof(Index));
+                }
             }
         }
+        
         return View(resetPasswordViewModel);
     }
-    
+        
     // get all pending categories
     [HttpGet]
     public IActionResult Categories()
