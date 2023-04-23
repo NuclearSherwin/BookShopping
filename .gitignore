@@ -470,3 +470,41 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Ignore app config files
+Web.config
+App.config
+
+# Visual Studio files
+*.suo
+*.cache
+*.pdb
+*.user
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.sdf
+*.opensdf
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages
+packages/
+
+# Other files and directories to ignore
+node_modules/
+bower_components/
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore app config files
+Web.config
+App.config
