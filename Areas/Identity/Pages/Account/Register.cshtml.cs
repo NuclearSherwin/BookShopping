@@ -10,7 +10,9 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using BookShopping.Data;
 using BookShopping.Models;
+using BookShopping.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -31,26 +33,30 @@ namespace BookShopping.Areas.Identity.Pages.Account
         private readonly IUserStore<IdentityUser> _userStore;
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IToastNotification _toastNotification;
+        private readonly ISendMailService _sendMailService;
+        private readonly ApplicationDbContext _db;
+
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager,
-            IToastNotification toastNotification)
+            IToastNotification toastNotification,
+            ISendMailService sendMailService,
+            ApplicationDbContext db)
         {
             _userManager = userManager;
             _userStore = userStore;
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
             _roleManager = roleManager;
             _toastNotification = toastNotification;
+            _sendMailService = sendMailService;
+            _db = db;
         }
 
         /// <summary>
@@ -144,7 +150,6 @@ namespace BookShopping.Areas.Identity.Pages.Account
                 {
                     UserName = Input.Email,
                     Email = Input.Email,
-                    EmailConfirmed = true,
                     FullName = Input.FullName,
                     PhoneNum = Input.PhoneNum,
                     Address = Input.Address
@@ -165,9 +170,27 @@ namespace BookShopping.Areas.Identity.Pages.Account
                         await _userManager.AddToRolesAsync(user, new[] { "StoreOwner" });
                     }
 
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(returnUrl);
+                    await _sendMailService.SendMailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    var userRegistered = _db.Users.FirstOrDefault(_ => _.Email.ToLower() == Input.Email.ToLower());
+                    if (!userRegistered.EmailConfirmed)
+                    {
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                    }
+                    else
+                    {
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl);
+                    }
                 }
                 
                 foreach (var error in result.Errors)

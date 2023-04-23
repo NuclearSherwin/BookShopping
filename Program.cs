@@ -1,5 +1,6 @@
 using BookShopping.Data;
 using BookShopping.Initializer;
+using BookShopping.Utils;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NToastNotify;
@@ -27,7 +28,10 @@ builder.Services.AddMvc().AddNToastNotifyToastr(new ToastrOptions()
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
-builder.Services.AddOptions();
+builder.Services.AddOptions(); 
+var mailsettings = builder.Configuration.GetSection("MailSettings"); 
+builder.Services.Configure<MailSettings> (mailsettings);
+builder.Services.AddTransient<ISendMailService, SendMailService>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {

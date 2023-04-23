@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BookShopping.Migrations
 {
-    public partial class initDb : Migration
+    public partial class initDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

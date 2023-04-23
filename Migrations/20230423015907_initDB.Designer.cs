@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookShopping.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230417095742_createdb")]
-    partial class createdb
+    [Migration("20230423015907_initDB")]
+    partial class initDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
