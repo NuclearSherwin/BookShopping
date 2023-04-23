@@ -44,4 +44,7 @@ public class Book
     [ForeignKey("CategoryId")]
     public Category Category { get; set; }
     
+    // specify who create it
+    public string CreateBy { get; set; }
+    
 }

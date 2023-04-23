@@ -1,4 +1,5 @@
-﻿using BookShopping.Constants;
+﻿using System.Security.Claims;
+using BookShopping.Constants;
 using BookShopping.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -25,11 +26,21 @@ public class BooksController : Controller
     [Authorize(Roles = Constants.Roles.StoreOwnerRole)]
     public IActionResult Index()
     {
-        var books = _db.Books.Include(_=>_.Category).Include(_=>_.FileModel).ToList();
+        var claimsIdentity = (ClaimsIdentity)User.Identity;
+        var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+        var currentUserId = claim.Value;
+        
+        var books = _db.Books
+            .Where(b => b.CreateBy == currentUserId)
+            .Include(_=>_.Category)
+            .Include(_=>_.FileModel)
+            .ToList();
+        
+        
         return View(books);
     }
     
-    [AllowAnonymous] // yeu cau su li ma khong can xem kiem tra role
+    [AllowAnonymous] // yeu cau xu li ma khong can xem kiem tra role
     public IActionResult GetImage(int id)
     {
         var image = _db.Files.Find(id);
@@ -80,6 +91,12 @@ public class BooksController : Controller
             await _db.SaveChangesAsync();
 
             input.Book.FileId = file.Id;
+            
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+            var currentUserId = claim.Value;
+            input.Book.CreateBy = currentUserId;
+            
 
             _db.Books.Add(input.Book);
             await _db.SaveChangesAsync();
