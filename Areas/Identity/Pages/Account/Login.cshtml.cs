@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using NToastNotify;
 
 namespace BookShopping.Areas.Identity.Pages.Account
 {
@@ -21,11 +22,13 @@ namespace BookShopping.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
-
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        private readonly IToastNotification _toastNotification;
+        
+        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger, IToastNotification toastNotification)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _toastNotification = toastNotification;
         }
 
         /// <summary>
