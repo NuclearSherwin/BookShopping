@@ -11,8 +11,11 @@
                     <div id="registerForm" class="left">
                         @* <div class="top_link"><a href="#"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div> *@
                         <div class="contact">
-                            <form id="account" method="post">
+                            <form id="account" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                                 <h3 class="mt-5">SIGN UP</h3>
+                                
+                                <div asp-validation-summary="ModelOnly" class="text-danger" excludePropertyErrors="true"></div>
+                                
                                 <input asp-for="Input.Email" aria-required="true" type="text" placeholder="EMAIL">
                                 <span id="email-validation" asp-validation-for="Input.Email" class="text-danger"></span>
                                 

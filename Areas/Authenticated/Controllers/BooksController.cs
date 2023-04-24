@@ -187,11 +187,13 @@ public class BooksController : Controller
             await _db.Files.AddAsync(file);
             await _db.SaveChangesAsync();
             
-            _toastNotification.AddSuccessToastMessage("book updated successfully!");
+            
     
             book.FileId = file.Id;
             isRemoveFile = true;
         }
+        
+        _toastNotification.AddSuccessToastMessage("book updated successfully!");
         await _db.SaveChangesAsync();
         
         if (isRemoveFile && oldFileId != 0)
